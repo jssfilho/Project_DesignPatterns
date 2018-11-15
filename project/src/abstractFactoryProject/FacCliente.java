@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package structProject;
+package abstractFactoryProject;
 
 /**
  *
  * @author Joao Santos
  */
-public class Conexao {
+public class FacCliente extends Factory{
     
 }
