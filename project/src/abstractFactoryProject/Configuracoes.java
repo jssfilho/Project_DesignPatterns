@@ -10,5 +10,9 @@ package abstractFactoryProject;
  * @author Joao Santos
  */
 public interface Configuracoes {
-    
+    public void clickHome();
+    public void clickEdite();
+    public void clickSair();
+    public void clickSalvar();
+    public void clickCancel();
 }

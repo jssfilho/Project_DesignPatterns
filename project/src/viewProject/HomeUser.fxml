@@ -7,14 +7,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="abstractFactoryProject.HomeUsu">
    <top>
       <AnchorPane prefHeight="25.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="60.0" mnemonicParsing="false" prefWidth="60.0" text="Config" />
-            <Button layoutX="120.0" mnemonicParsing="false" prefWidth="60.0" text="Sair" />
-            <Button mnemonicParsing="false" prefWidth="60.0" text="Home" />
-            <TextField layoutX="434.0" layoutY="5.0" />
+            <Button fx:id="config" layoutX="60.0" mnemonicParsing="false" onAction="#clickConfig" prefWidth="60.0" text="Config" />
+            <Button fx:id="sair" layoutX="120.0" mnemonicParsing="false" onAction="#clickSair" prefWidth="60.0" text="Sair" />
+            <Button fx:id="home" mnemonicParsing="false" onAction="#clickHome" prefWidth="60.0" text="Home" />
+            <TextField fx:id="pesquisaLoja" layoutX="434.0" layoutY="5.0" onInputMethodTextChanged="#pesquisaLojaMet" />
             <Label layoutX="330.0" layoutY="9.0" text="Pesquisar Loja" />
          </children>
       </AnchorPane>
@@ -22,9 +22,9 @@
    <left>
       <AnchorPane prefHeight="368.0" prefWidth="117.0" BorderPane.alignment="CENTER">
          <children>
-            <RadioButton layoutX="10.0" layoutY="61.0" mnemonicParsing="false" text="Alimentos" />
-            <RadioButton layoutX="10.0" layoutY="97.0" mnemonicParsing="false" text="Vestimentas" />
-            <RadioButton layoutX="10.0" layoutY="135.0" mnemonicParsing="false" text="Eletrônicos" />
+            <RadioButton fx:id="aliSelect" layoutX="10.0" layoutY="61.0" mnemonicParsing="false" onAction="#filtroAction" text="Alimentos" />
+            <RadioButton fx:id="vestSelect" layoutX="10.0" layoutY="97.0" mnemonicParsing="false" onAction="#filtroAction" text="Vestimentas" />
+            <RadioButton fx:id="elecSelect" layoutX="10.0" layoutY="135.0" mnemonicParsing="false" onAction="#filtroAction" text="Eletrônicos" />
             <Label layoutX="46.0" layoutY="28.0" text="Filtros" />
          </children>
       </AnchorPane>

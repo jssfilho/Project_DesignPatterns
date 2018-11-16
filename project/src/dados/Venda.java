@@ -3,13 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package abstractFactoryProject;
+package dados;
 
 /**
  *
  * @author Joao Santos
  */
-public abstract class Factory {
-     public abstract Configuracoes getConfig();
-     public abstract Home getHome();
+public class Venda {
+    
 }

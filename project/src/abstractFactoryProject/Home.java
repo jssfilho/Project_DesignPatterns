@@ -10,5 +10,7 @@ package abstractFactoryProject;
  * @author Joao Santos
  */
 public interface Home {
-    
+    public void clickHome();
+    public void clickEdite();
+    public void clickSair();
 }

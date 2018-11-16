@@ -8,21 +8,21 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="abstractFactoryProject.ConfigAdm">
    <top>
       <AnchorPane prefHeight="25.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="60.0" mnemonicParsing="false" prefWidth="60.0" text="Editar" />
-            <Button layoutX="120.0" mnemonicParsing="false" prefWidth="60.0" text="Sair" />
-            <Button mnemonicParsing="false" prefWidth="60.0" text="Home" />
+            <Button fx:id="config" layoutX="60.0" mnemonicParsing="false" onAction="#clickEdite" prefWidth="60.0" text="Editar" />
+            <Button fx:id="sair" layoutX="120.0" mnemonicParsing="false" onAction="#clickSair" prefWidth="60.0" text="Sair" />
+            <Button fx:id="home" mnemonicParsing="false" onAction="#clickHome" prefWidth="60.0" text="Home" />
          </children>
       </AnchorPane>
    </top>
    <bottom>
       <AnchorPane prefHeight="28.0" prefWidth="429.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="6.0" layoutY="2.0" mnemonicParsing="false" prefWidth="65.0" text="Salvar" />
-            <Button layoutX="68.0" layoutY="2.0" mnemonicParsing="false" prefWidth="65.0" text="Cancelar" />
+            <Button fx:id="save" layoutX="6.0" layoutY="2.0" mnemonicParsing="false" onAction="#clickSalvar" prefWidth="65.0" text="Salvar" />
+            <Button fx:id="cancel" layoutX="68.0" layoutY="2.0" mnemonicParsing="false" onAction="#clickCancel" prefWidth="65.0" text="Cancelar" />
          </children>
       </AnchorPane>
    </bottom>
@@ -30,7 +30,7 @@
       <AnchorPane prefHeight="347.0" prefWidth="298.0" BorderPane.alignment="CENTER">
          <children>
             <Label layoutX="94.0" layoutY="14.0" text="Editar Configurações" />
-            <RadioButton layoutX="90.0" layoutY="113.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="118.0" text="Disponibilidade" />
+            <RadioButton fx:id="dispon" layoutX="90.0" layoutY="113.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="118.0" text="Disponibilidade" />
          </children>
       </AnchorPane>
    </left>
@@ -38,11 +38,11 @@
       <AnchorPane prefHeight="347.0" prefWidth="312.0" BorderPane.alignment="CENTER">
          <children>
             <Label layoutX="102.0" layoutY="14.0" text="Editar Informações" />
-            <TextField layoutX="77.0" layoutY="106.0" />
+            <TextField fx:id="emailEdit" layoutX="77.0" layoutY="106.0" />
             <Label layoutX="98.0" layoutY="82.0" prefHeight="17.0" prefWidth="107.0" text="Email de Contato" />
             <Label layoutX="122.0" layoutY="184.0" text="Senha Atual" />
-            <PasswordField layoutX="79.0" layoutY="201.0" />
-            <PasswordField layoutX="79.0" layoutY="257.0" />
+            <PasswordField fx:id="senhaAt" layoutX="79.0" layoutY="201.0" />
+            <PasswordField fx:id="senhaNew" layoutX="79.0" layoutY="257.0" />
             <Label layoutX="122.0" layoutY="240.0" text="Nova Senha" />
          </children>
       </AnchorPane>
