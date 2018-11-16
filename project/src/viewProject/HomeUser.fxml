@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <AnchorPane prefHeight="25.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="60.0" mnemonicParsing="false" prefWidth="60.0" text="Config" />
+            <Button layoutX="120.0" mnemonicParsing="false" prefWidth="60.0" text="Sair" />
+            <Button mnemonicParsing="false" prefWidth="60.0" text="Home" />
+            <TextField layoutX="434.0" layoutY="5.0" />
+            <Label layoutX="330.0" layoutY="9.0" text="Pesquisar Loja" />
+         </children>
+      </AnchorPane>
+   </top>
+   <left>
+      <AnchorPane prefHeight="368.0" prefWidth="117.0" BorderPane.alignment="CENTER">
+         <children>
+            <RadioButton layoutX="10.0" layoutY="61.0" mnemonicParsing="false" text="Alimentos" />
+            <RadioButton layoutX="10.0" layoutY="97.0" mnemonicParsing="false" text="Vestimentas" />
+            <RadioButton layoutX="10.0" layoutY="135.0" mnemonicParsing="false" text="Eletrônicos" />
+            <Label layoutX="46.0" layoutY="28.0" text="Filtros" />
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>
