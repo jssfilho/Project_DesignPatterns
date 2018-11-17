@@ -9,6 +9,6 @@ package dados;
  *
  * @author Joao Santos
  */
-public class Venda {
+public class Pedido {
     
 }

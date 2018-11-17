@@ -4,7 +4,10 @@
  * and open the template in the editor.
  */
 package abstractFactoryProject;
-
+import observerProject.ClienteView;
+import observerProject.Cliente;
+import observerProject.Fornecedor;
+import observerProject.Fornecedor;
 /**
  *
  * @author Joao Santos

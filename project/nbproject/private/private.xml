@@ -3,7 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Joao%20Santos/Documents/GitHub/Project_DesignPatterns/project/src/abstractFactoryProject/ConfigAdm.java</file>
+            <file>file:/C:/Users/Joao%20Santos/Documents/GitHub/Project_DesignPatterns/project/src/observerProject/UsuarioSujeito.java</file>
+            <file>file:/C:/Users/Joao%20Santos/Documents/GitHub/Project_DesignPatterns/project/src/observerProject/Cliente.java</file>
+            <file>file:/C:/Users/Joao%20Santos/Documents/GitHub/Project_DesignPatterns/project/src/dados/Pedido.java</file>
+            <file>file:/C:/Users/Joao%20Santos/Documents/GitHub/Project_DesignPatterns/project/src/abstractFactoryProject/Factory.java</file>
+            <file>file:/C:/Users/Joao%20Santos/Documents/GitHub/Project_DesignPatterns/project/src/observerProject/Fornecedor.java</file>
+            <file>file:/C:/Users/Joao%20Santos/Documents/GitHub/Project_DesignPatterns/project/src/observerProject/ClienteView.java</file>
+            <file>file:/C:/Users/Joao%20Santos/Documents/GitHub/Project_DesignPatterns/project/src/observerProject/Observador.java</file>
+            <file>file:/C:/Users/Joao%20Santos/Documents/GitHub/Project_DesignPatterns/project/src/observerProject/FornecedorView.java</file>
         </group>
     </open-files>
 </project-private>

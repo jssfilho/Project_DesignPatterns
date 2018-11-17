@@ -17,12 +17,12 @@ public abstract class Produto {
     * nome do produto contendo sua marca/fabricante
     * descrição do produto contendo seu tipo: bebida alcolica, carne, etc
     */
-    private String codBarra;
-    private float preco;
-    private String nome;
-    private String descricao;
-    private String lote;
-    private Date dCompra;
+    protected String codBarra;
+    protected float preco;
+    protected String nome;
+    protected String descricao;
+    protected String lote;
+    protected Date dCompra;
 
     public float getPreco() {
         return preco;

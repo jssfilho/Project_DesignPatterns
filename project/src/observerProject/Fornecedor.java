@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dados;
-
+package observerProject;
+import dados.Loja;
 /**
  *
  * @author Joao Santos
  */
-public class Fornecedor extends Usuario{
+public class Fornecedor extends UsuarioSujeito{
+    private Loja loja;
+    
     
 }
