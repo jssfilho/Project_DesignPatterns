@@ -5,10 +5,15 @@
  */
 package dados;
 
+
+
+import bridgeProject.Produto;
+import java.util.HashMap;
+
 /**
  *
  * @author Joao Santos
  */
 public class Loja {
-    
+     private HashMap<Produto, Integer> map = new HashMap<>();
 }

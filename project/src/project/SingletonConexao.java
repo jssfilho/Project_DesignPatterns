@@ -5,6 +5,10 @@
  */
 package project;
 
+import observerProject.Cliente;
+import observerProject.Fornecedor;
+import observerProject.UsuarioSujeito;
+
 /*
  * Singleton
  * @author Joao Santos
@@ -29,4 +33,16 @@ public class SingletonConexao {
         }
         return SingletonConexao.cone;
     }
+    
+    public UsuarioSujeito getUser(int tipo){
+        UsuarioSujeito u = null;
+        if(tipo==1){
+            u = new Cliente();
+        }else{
+            u = new Fornecedor();
+        }
+        return u;
+    }
+    
+    
 }

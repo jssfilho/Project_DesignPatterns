@@ -11,6 +11,4 @@ import dados.Loja;
  */
 public class Fornecedor extends UsuarioSujeito{
     private Loja loja;
-    
-    
 }
