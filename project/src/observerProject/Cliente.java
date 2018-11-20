@@ -5,6 +5,7 @@
  */
 package observerProject;
 
+import dados.Pedido;
 import java.util.ArrayList;
 
 /**
@@ -12,5 +13,5 @@ import java.util.ArrayList;
  * @author Joao Santos
  */
 public class Cliente extends UsuarioSujeito{
-    
+    private ArrayList<Pedido> ps;
 }

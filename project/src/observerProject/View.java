@@ -3,17 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dados;
-
-
-
-import bridgeProject.Produto;
-import java.util.HashMap;
+package observerProject;
 
 /**
  *
  * @author Joao Santos
  */
-public class Loja {
-     private HashMap<Produto, Integer> map = new HashMap<>();
+public class View implements Observador{
+    private UsuarioSujeito ob;
+    
+    /*
+        Definir os dados observados
+    */
+    @Override
+    public void update() {
+        
+    }
+    
 }

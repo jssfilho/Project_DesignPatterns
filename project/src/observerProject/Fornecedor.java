@@ -4,11 +4,12 @@
  * and open the template in the editor.
  */
 package observerProject;
-import dados.Loja;
+import abstractFactoryProject.Loja;
 /**
  *
  * @author Joao Santos
  */
 public class Fornecedor extends UsuarioSujeito{
-    private Loja loja;
+    private Loja myStore;
+    private String codMyStore;
 }
