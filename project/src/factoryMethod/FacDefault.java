@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package observerProject;
+package factoryMethod;
 
-import project.Pedido;
-import java.util.ArrayList;
+import javafx.scene.Parent;
+
 
 /**
  *
  * @author Joao Santos
  */
-public class Cliente extends UsuarioSujeito{
-    private ArrayList<Pedido> ps;
+public abstract class FacDefault {
+    public abstract Parent getCena();
 }

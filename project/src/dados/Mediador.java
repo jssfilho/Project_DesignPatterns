@@ -3,15 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package observerProject;
-
-import project.Pedido;
-import java.util.ArrayList;
+package dados;
 
 /**
  *
  * @author Joao Santos
  */
-public class Cliente extends UsuarioSujeito{
-    private ArrayList<Pedido> ps;
+public interface Mediador {
+    public void trocaView();
 }

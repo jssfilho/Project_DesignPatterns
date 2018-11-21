@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dados;
+package factoryMethod;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
@@ -44,5 +45,15 @@ public class Cadastro {
 
     @FXML
     private Button cancel;
+    @FXML
+    void cadastrarVoid(ActionEvent event) {
+
+    }
+
+    @FXML
+    void cancelVoid(ActionEvent event) {
+
+    }
+
 
 }
