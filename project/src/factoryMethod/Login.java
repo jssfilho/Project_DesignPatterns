@@ -5,14 +5,19 @@
  */
 package factoryMethod;
 
+import java.io.IOException;
+import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 
-public class Login {
 
+public class Login extends VBox {
+    
     @FXML
     private Button entrar;
 
@@ -24,7 +29,15 @@ public class Login {
 
     @FXML
     private TextField loginID;
-
+    
+    public FXMLLoader loader;
+    
+    
+    public Login(){
+        this.loader = new FXMLLoader(getClass().getResource("login.fxml"));
+    }
+    
+    
     @FXML
     void getCadastro(ActionEvent event) {
 
@@ -34,5 +47,17 @@ public class Login {
     void loginMet(ActionEvent event) {
 
     }
+    public String getText() {
+        return textProperty().get();
+    }
+
+    public void setText(String value) {
+        textProperty().set(value);
+    }
+
+    public StringProperty textProperty() {
+        return loginID.textProperty();
+    }
+ 
 
 }
