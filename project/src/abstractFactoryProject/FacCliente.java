@@ -20,8 +20,8 @@ public class FacCliente extends Factory{
     
     
     @Override
-    public Parent getConfig() {
-        Parent root=null; 
+    public Configuracoes getConfig() {
+        Configuracoes root=null; 
         try {
             root = FXMLLoader.load(getClass().getResource("ConfigUsu.fxml"));
         } catch (IOException ex) {
@@ -31,8 +31,8 @@ public class FacCliente extends Factory{
     }
 
     @Override
-    public Parent getHome() {
-        Parent root=null; 
+    public Home getHome() {
+        Home root=null; 
         try {
             root = FXMLLoader.load(getClass().getResource("HomeUsu.fxml"));
         } catch (IOException ex) {

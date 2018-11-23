@@ -4,17 +4,15 @@
  * and open the template in the editor.
  */
 package abstractFactoryProject;
-import javafx.scene.Parent;
 
-import observerProject.View;
-import observerProject.Cliente;
-import observerProject.Fornecedor;
+
+
 
 /**
  *
  * @author Joao Santos
  */
 public abstract class Factory {
-     public abstract Parent getConfig();
-     public abstract Parent getHome();
+     public abstract Configuracoes getConfig();
+     public abstract Home getHome();
 }

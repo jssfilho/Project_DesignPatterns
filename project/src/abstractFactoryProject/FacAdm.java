@@ -19,8 +19,8 @@ import javafx.scene.Parent;
 public class FacAdm extends Factory{
 
     @Override
-    public Parent getConfig() {
-        Parent root=null; 
+    public Configuracoes getConfig() {
+        Configuracoes root=null; 
         try {
             root = FXMLLoader.load(getClass().getResource("ConfigAdm.fxml"));
         } catch (IOException ex) {
@@ -30,8 +30,8 @@ public class FacAdm extends Factory{
     }
 
     @Override
-    public Parent getHome() {
-        Parent root=null; 
+    public Home getHome() {
+        Home root=null; 
         try {
             root = FXMLLoader.load(getClass().getResource("HomeAdm.fxml"));
         } catch (IOException ex) {
