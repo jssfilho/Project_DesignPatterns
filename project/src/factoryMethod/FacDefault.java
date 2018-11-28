@@ -13,5 +13,5 @@ import javafx.scene.Parent;
  * @author Joao Santos
  */
 public abstract class FacDefault {
-    public abstract Parent getCena();
+    public abstract PaginaInicial getCena();
 }

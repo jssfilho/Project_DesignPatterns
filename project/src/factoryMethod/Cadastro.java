@@ -7,12 +7,14 @@ package factoryMethod;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 
-public class Cadastro {
-
+public class Cadastro implements PaginaInicial{
+    
+    public FXMLLoader loader;
     @FXML
     private TextField nomeUser;
 
@@ -45,8 +47,16 @@ public class Cadastro {
 
     @FXML
     private Button cancel;
+    
+    
+    
+    public Cadastro(){
+        this.loader = new FXMLLoader(getClass().getResource("cadastro.fxml"));
+    }
+    
     @FXML
-    void cadastrarVoid(ActionEvent event) {
+    @Override
+    public void cadastrar(ActionEvent event) {
 
     }
 

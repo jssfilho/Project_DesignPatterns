@@ -5,19 +5,12 @@
  */
 package factoryMethod;
 
-
+import javafx.event.ActionEvent;
 
 /**
  *
  * @author Joao Santos
  */
-public class FacLogin extends FacDefault{
-
-    @Override
-    public PaginaInicial getCena() {
-        PaginaInicial root=new Login(); 
-    
-        return root;
-    }
-    
+public interface PaginaInicial {
+    public void cadastrar(ActionEvent event);
 }

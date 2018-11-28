@@ -12,15 +12,15 @@ import javafx.scene.Parent;
  *
  * @author Joao Santos
  */
-public class View implements Observador{
+public class View extends Parent implements Observador{
     private UsuarioSujeito ob = null;
-    private Parent parent;
     
     /*
         Definir os dados observados
     */
-    
-    
+    public View(){
+        
+    }
     
     @Override
     public void update() {
@@ -34,13 +34,4 @@ public class View implements Observador{
     public void setOb(UsuarioSujeito ob) {
         this.ob = ob;
     }
-
-    public Parent getParent() {
-        return parent;
-    }
-
-    public void setParent(Parent parent) {
-        this.parent = parent;
-    }
-    
 }

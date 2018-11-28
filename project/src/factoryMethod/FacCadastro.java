@@ -19,13 +19,8 @@ import javafx.fxml.FXMLLoader;
 public class FacCadastro extends FacDefault {
 
     @Override
-    public Parent getCena() {
-        Parent root=null; 
-        try {
-            root = FXMLLoader.load(getClass().getResource("cadastro.fxml"));
-        } catch (IOException ex) {
-            Logger.getLogger(FacCadastro.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    public PaginaInicial getCena() {
+        PaginaInicial root=new Cadastro(); 
         return root;
     }
     

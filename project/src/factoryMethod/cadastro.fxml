@@ -34,7 +34,7 @@
       </AnchorPane>
       <RadioButton fx:id="tipoUser" layoutX="158.0" layoutY="34.0" mnemonicParsing="false" text="Comprador" />
       <RadioButton fx:id="tipoUser" layoutX="360.0" layoutY="34.0" mnemonicParsing="false" text="Vendedor" />
-      <Button fx:id="cadastroBtn" layoutX="173.0" layoutY="347.0" mnemonicParsing="false" onAction="#cadastrarVoid" text="Cadastrar" />
-      <Button fx:id="cancel" layoutX="300.0" layoutY="347.0" mnemonicParsing="false" onAction="#cancelVoid" text="Cancelar" />
+      <Button fx:id="cadastroBtn" layoutX="207.0" layoutY="347.0" mnemonicParsing="false" onAction="#cadastrar" text="Cadastrar" />
+      <Button fx:id="cancel" layoutX="314.0" layoutY="347.0" mnemonicParsing="false" onAction="#cancelVoid" text="Cancelar" />
    </children>
 </AnchorPane>
