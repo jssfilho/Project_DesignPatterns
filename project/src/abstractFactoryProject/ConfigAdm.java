@@ -5,7 +5,10 @@
  */
 package abstractFactoryProject;
 
+import java.io.IOException;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
@@ -15,6 +18,8 @@ import javafx.scene.control.TextField;
  * @author Joao Santos
  */
 public class ConfigAdm implements Configuracoes{
+    
+    public Parent loader;
     @FXML
     private Button config;
 
@@ -41,7 +46,13 @@ public class ConfigAdm implements Configuracoes{
 
     @FXML
     private PasswordField senhaNew;
-
+    
+    
+     public ConfigAdm() throws IOException{
+        FXMLLoader loade = new FXMLLoader(getClass().getResource("ConfigAdm.fxml"));
+        this.loader=loade.load();
+    }
+    
     @Override
     @FXML
     public void clickHome() {
@@ -70,6 +81,11 @@ public class ConfigAdm implements Configuracoes{
     @FXML
     public void clickCancel() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Parent getLoad() {
+        return this.loader;
     }
     
 }

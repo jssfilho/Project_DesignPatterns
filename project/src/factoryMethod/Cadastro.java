@@ -5,16 +5,18 @@
  */
 package factoryMethod;
 
+import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 
 public class Cadastro implements PaginaInicial{
     
-    public FXMLLoader loader;
+  
     @FXML
     private TextField nomeUser;
 
@@ -48,10 +50,12 @@ public class Cadastro implements PaginaInicial{
     @FXML
     private Button cancel;
     
+    public FXMLLoader loader;
     
     
-    public Cadastro(){
-        this.loader = new FXMLLoader(getClass().getResource("cadastro.fxml"));
+    public Cadastro() throws IOException{
+       this.loader = new FXMLLoader(getClass().getResource("cadastro.fxml"));
+        
     }
     
     @FXML
@@ -63,6 +67,11 @@ public class Cadastro implements PaginaInicial{
     @FXML
     void cancelVoid(ActionEvent event) {
 
+    }
+
+    @Override
+    public FXMLLoader getParent() {
+        return this.loader;
     }
 
 

@@ -5,8 +5,11 @@
  */
 package abstractFactoryProject;
 import java.awt.event.InputMethodEvent;
+import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
@@ -19,7 +22,7 @@ import javafx.scene.control.TextField;
 public class HomeUsu implements Home{
     
     
-    
+    public Parent loader;
     @FXML
     private Button config;
 
@@ -41,7 +44,12 @@ public class HomeUsu implements Home{
     @FXML
     private RadioButton elecSelect;
 
-
+    
+     public HomeUsu() throws IOException{
+        FXMLLoader loade = new FXMLLoader(getClass().getResource("HomeUsu.fxml"));
+        this.loader=loade.load();
+    }
+    
     @FXML
     void filtroAction(ActionEvent event) {
 
@@ -68,6 +76,11 @@ public class HomeUsu implements Home{
     @FXML
     public void clickSair() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Parent getLoad() {
+        return this.loader;
     }
     
 }

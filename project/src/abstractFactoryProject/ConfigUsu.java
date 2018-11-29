@@ -5,12 +5,24 @@
  */
 package abstractFactoryProject;
 
+import java.io.IOException;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+
 /**
  *
  * @author Joao Santos
  */
 public class ConfigUsu implements Configuracoes{
-
+    public Parent loader;
+    
+    
+    
+    public ConfigUsu() throws IOException{
+        FXMLLoader loade = new FXMLLoader(getClass().getResource("HomeAdm.fxml"));
+        this.loader=loade.load();
+    }
+    
     @Override
     public void clickHome() {
         
@@ -34,6 +46,11 @@ public class ConfigUsu implements Configuracoes{
     @Override
     public void clickCancel() {
         
+    }
+
+    @Override
+    public Parent getLoad() {
+        return this.loader;
     }
     
 }

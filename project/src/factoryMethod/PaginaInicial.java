@@ -6,6 +6,8 @@
 package factoryMethod;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+
 
 /**
  *
@@ -13,4 +15,5 @@ import javafx.event.ActionEvent;
  */
 public interface PaginaInicial {
     public void cadastrar(ActionEvent event);
+    public FXMLLoader getParent();
 }

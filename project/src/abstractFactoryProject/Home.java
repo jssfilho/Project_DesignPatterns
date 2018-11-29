@@ -5,11 +5,14 @@
  */
 package abstractFactoryProject;
 
+import javafx.scene.Parent;
+
 /**
  *
  * @author Joao Santos
  */
 public interface Home {
+    public Parent getLoad();
     public void clickHome();
     public void clickEdite();
     public void clickSair();

@@ -5,6 +5,10 @@
  */
 package factoryMethod;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 
 /**
@@ -15,7 +19,12 @@ public class FacLogin extends FacDefault{
 
     @Override
     public PaginaInicial getCena() {
-        PaginaInicial root=new Login(); 
+        PaginaInicial root=null; 
+        try {
+            root = new Login();
+        } catch (IOException ex) {
+            Logger.getLogger(FacLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
     
         return root;
     }

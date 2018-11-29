@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package project;
+package bridgeProject;
 
+import bridgeProject.Fornecedor;
+import bridgeProject.Cliente;
 import bridgeProject.Produto;
 import java.util.ArrayList;
-import observerProject.Cliente;
-import observerProject.Fornecedor;
 
 /**
  *

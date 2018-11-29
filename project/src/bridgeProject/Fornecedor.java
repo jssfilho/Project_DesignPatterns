@@ -3,15 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package observerProject;
-
-import project.Pedido;
-import java.util.ArrayList;
-
+package bridgeProject;
+import bridgeProject.UsuarioSujeito;
+import abstractFactoryProject.Loja;
 /**
  *
  * @author Joao Santos
  */
-public class Cliente extends UsuarioSujeito{
-    private ArrayList<Pedido> ps;
+public class Fornecedor extends UsuarioSujeito{
+    private Loja myStore;
+    private String codMyStore;
 }

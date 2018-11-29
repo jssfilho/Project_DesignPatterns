@@ -3,11 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package project;
+package bridgeProject;
 
-import observerProject.Cliente;
-import observerProject.Fornecedor;
-import observerProject.UsuarioSujeito;
 
 /*
  * Singleton

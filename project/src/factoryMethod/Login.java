@@ -5,9 +5,11 @@
  */
 package factoryMethod;
 
+import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -31,20 +33,26 @@ public class Login implements PaginaInicial {
     public FXMLLoader loader;
     
     
-    public Login(){
-        this.loader = new FXMLLoader(getClass().getResource("login.fxml"));
+    public Login() throws IOException{
+        this.loader= new FXMLLoader(getClass().getResource("login.fxml"));
+    
     }
     
     
     @FXML
     @Override
     public void cadastrar(ActionEvent event) {
-
+        
     }
 
     @FXML
     void loginMet(ActionEvent event) {
 
+    }
+
+    @Override
+    public FXMLLoader getParent() {
+        return this.loader;
     }
 
  

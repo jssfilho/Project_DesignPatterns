@@ -6,9 +6,14 @@
 package abstractFactoryProject;
 
 import java.awt.event.InputMethodEvent;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -20,7 +25,7 @@ import javafx.scene.control.TextField;
  * @author Joao Santos
  */
 public class HomeAdm implements Home{
-    
+    public Parent loader;
     @FXML
     private Button config;
 
@@ -69,6 +74,11 @@ public class HomeAdm implements Home{
     @FXML
     private Label valorReceita;
     
+    public HomeAdm() throws IOException{
+        FXMLLoader loade = new FXMLLoader(getClass().getResource("HomeAdm.fxml"));
+        this.loader=loade.load();
+    }
+    
     @FXML
     void getProdEstoq(InputMethodEvent event) {
         
@@ -116,6 +126,11 @@ public class HomeAdm implements Home{
     @FXML
     public void clickSair() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Parent getLoad() {
+       return this.loader;
     }
     
 }

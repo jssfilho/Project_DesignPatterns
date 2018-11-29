@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package observerProject;
+package bridgeProject;
 
 import java.util.ArrayList;
+import observerProject.Observador;
 
 /**
  *
@@ -19,19 +20,7 @@ public abstract class UsuarioSujeito {
     protected int num;
     protected String nome;
     
-    protected ArrayList<Observador> observadores;
     
-    public void add(Observador ob){
-        this.observadores.add(ob);
-    }
-    public void rem(Observador ob){
-        this.observadores.remove(ob);
-    }
-    public void notifique(){
-        for (Observador ob: this.observadores){
-            ob.update();
-        }
-    }
     public String getEmail() {
         return email;
     }

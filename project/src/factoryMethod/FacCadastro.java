@@ -20,7 +20,12 @@ public class FacCadastro extends FacDefault {
 
     @Override
     public PaginaInicial getCena() {
-        PaginaInicial root=new Cadastro(); 
+        PaginaInicial root=null; 
+        try {
+            root = new Cadastro();
+        } catch (IOException ex) {
+            Logger.getLogger(FacCadastro.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return root;
     }
     
