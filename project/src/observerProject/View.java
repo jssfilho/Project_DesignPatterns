@@ -15,21 +15,33 @@ import javafx.scene.Scene;
  * @author Joao Santos
  */
 public class View extends Scene implements Observador{
-    private SujeitoConcreto sC;
+    private Project p;
     private UsuarioSujeito ob = null;
+    private String tipo;
+    private boolean on;
     
     /*
         Definir os dados observados
     */
+    
+    @Override
+    public String getTipo() {
+        return tipo;
+    }
 
-    public View(Parent root) {
+    public View(Parent root, String tipo) {
         super(root);
+        this.tipo = tipo;
     }
     
     
     @Override
     public void update() {
-        sC.getU();
+        if(this.tipo.equals(p.viewAtual)){
+            this.on=true;
+        }else{
+            this.on=false;
+        }
     }
 
     public UsuarioSujeito getOb() {

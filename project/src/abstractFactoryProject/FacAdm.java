@@ -20,7 +20,12 @@ public class FacAdm extends Factory{
 
     @Override
     public Configuracoes getConfig() {
-        Configuracoes root=null; 
+        Configuracoes root =null; 
+        try {
+            root = new ConfigAdm();
+        } catch (IOException ex) {
+            Logger.getLogger(FacAdm.class.getName()).log(Level.SEVERE, null, ex);
+        }
    
         return root;
     }
@@ -28,7 +33,11 @@ public class FacAdm extends Factory{
     @Override
     public Home getHome() {
         Home root=null; 
-     
+        try {
+            root = new HomeAdm();
+        } catch (IOException ex) {
+            Logger.getLogger(FacAdm.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return root;
     }
     

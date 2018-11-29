@@ -22,14 +22,22 @@ public class FacCliente extends Factory{
     @Override
     public Configuracoes getConfig() {
         Configuracoes root=null; 
-     
+        try {
+            root = new ConfigUsu();
+        } catch (IOException ex) {
+            Logger.getLogger(FacCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return root;
     }
 
     @Override
     public Home getHome() {
         Home root=null; 
-    
+        try {
+            root = new HomeUsu();
+        } catch (IOException ex) {
+            Logger.getLogger(FacCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return root;
     }
     

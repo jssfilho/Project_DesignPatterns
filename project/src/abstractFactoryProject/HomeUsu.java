@@ -9,7 +9,6 @@ import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
@@ -22,7 +21,7 @@ import javafx.scene.control.TextField;
 public class HomeUsu implements Home{
     
     
-    public Parent loader;
+    public FXMLLoader loader;
     @FXML
     private Button config;
 
@@ -47,7 +46,7 @@ public class HomeUsu implements Home{
     
      public HomeUsu() throws IOException{
         FXMLLoader loade = new FXMLLoader(getClass().getResource("HomeUsu.fxml"));
-        this.loader=loade.load();
+        this.loader=loade;
     }
     
     @FXML
@@ -79,7 +78,7 @@ public class HomeUsu implements Home{
     }
 
     @Override
-    public Parent getLoad() {
+    public FXMLLoader getLoad() {
         return this.loader;
     }
     

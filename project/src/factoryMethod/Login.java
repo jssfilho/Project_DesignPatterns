@@ -35,7 +35,7 @@ public class Login implements PaginaInicial {
     
     public Login() throws IOException{
         this.loader= new FXMLLoader(getClass().getResource("login.fxml"));
-    
+        System.out.println("Fudeu");
     }
     
     

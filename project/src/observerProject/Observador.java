@@ -11,4 +11,5 @@ package observerProject;
  */
 public interface Observador {
     public void update();
+    public String getTipo();
 }

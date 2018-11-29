@@ -19,7 +19,7 @@ import javafx.scene.control.TextField;
  */
 public class ConfigAdm implements Configuracoes{
     
-    public Parent loader;
+    public FXMLLoader loader;
     @FXML
     private Button config;
 
@@ -50,7 +50,7 @@ public class ConfigAdm implements Configuracoes{
     
      public ConfigAdm() throws IOException{
         FXMLLoader loade = new FXMLLoader(getClass().getResource("ConfigAdm.fxml"));
-        this.loader=loade.load();
+        this.loader=loade;
     }
     
     @Override
@@ -84,7 +84,7 @@ public class ConfigAdm implements Configuracoes{
     }
 
     @Override
-    public Parent getLoad() {
+    public FXMLLoader getLoad() {
         return this.loader;
     }
     

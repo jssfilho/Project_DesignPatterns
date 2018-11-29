@@ -25,7 +25,7 @@ import javafx.scene.control.TextField;
  * @author Joao Santos
  */
 public class HomeAdm implements Home{
-    public Parent loader;
+    public FXMLLoader loader;
     @FXML
     private Button config;
 
@@ -76,7 +76,7 @@ public class HomeAdm implements Home{
     
     public HomeAdm() throws IOException{
         FXMLLoader loade = new FXMLLoader(getClass().getResource("HomeAdm.fxml"));
-        this.loader=loade.load();
+        this.loader=loade;
     }
     
     @FXML
@@ -129,7 +129,7 @@ public class HomeAdm implements Home{
     }
 
     @Override
-    public Parent getLoad() {
+    public FXMLLoader getLoad() {
        return this.loader;
     }
     

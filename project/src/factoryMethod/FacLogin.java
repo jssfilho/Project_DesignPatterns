@@ -22,9 +22,12 @@ public class FacLogin extends FacDefault{
         PaginaInicial root=null; 
         try {
             root = new Login();
+            
         } catch (IOException ex) {
             Logger.getLogger(FacLogin.class.getName()).log(Level.SEVERE, null, ex);
+            
         }
+        
     
         return root;
     }

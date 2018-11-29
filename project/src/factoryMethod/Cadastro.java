@@ -54,8 +54,8 @@ public class Cadastro implements PaginaInicial{
     
     
     public Cadastro() throws IOException{
-       this.loader = new FXMLLoader(getClass().getResource("cadastro.fxml"));
-        
+        FXMLLoader loade = new FXMLLoader(getClass().getResource("cadastro.fxml"));
+        this.loader=loade;
     }
     
     @FXML

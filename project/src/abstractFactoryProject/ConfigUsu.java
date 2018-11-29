@@ -14,13 +14,13 @@ import javafx.scene.Parent;
  * @author Joao Santos
  */
 public class ConfigUsu implements Configuracoes{
-    public Parent loader;
+    public FXMLLoader loader;
     
     
     
     public ConfigUsu() throws IOException{
         FXMLLoader loade = new FXMLLoader(getClass().getResource("HomeAdm.fxml"));
-        this.loader=loade.load();
+        this.loader=loade;
     }
     
     @Override
@@ -49,7 +49,7 @@ public class ConfigUsu implements Configuracoes{
     }
 
     @Override
-    public Parent getLoad() {
+    public FXMLLoader getLoad() {
         return this.loader;
     }
     

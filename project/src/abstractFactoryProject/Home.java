@@ -5,6 +5,7 @@
  */
 package abstractFactoryProject;
 
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 
 /**
@@ -12,7 +13,7 @@ import javafx.scene.Parent;
  * @author Joao Santos
  */
 public interface Home {
-    public Parent getLoad();
+    public FXMLLoader getLoad();
     public void clickHome();
     public void clickEdite();
     public void clickSair();
