@@ -25,18 +25,18 @@ import javafx.scene.Scene;
  *
  * @author Joao Santos
  */
-public class Project extends Application {
-    protected ArrayList<Observador> observadores = new ArrayList();
-    private static Factory fac = null;
+public class Project  {
+    protected ArrayList<View> observadores = new ArrayList();
+    private Factory fac = null;
     private  FacDefault facd;
     public UsuarioSujeito u = null;
-    public String viewAtual = "Login";
+    public  String viewAtual = "Login";
     
     
-    public void add(Observador ob){
+    public void add(View ob){
         this.observadores.add(ob);
     }
-    public void rem(Observador ob){
+    public void rem(View ob){
         this.observadores.remove(ob);
     }
     public void notifique(){
@@ -58,47 +58,40 @@ public class Project extends Application {
         this.facd = new FacCadastro();
         d = this.facd.getCena();
         View vCadastro = new View(d.getParent().load(),"Cadastro");
+        vLogin.p=this;
         this.add(vLogin);
+        vCadastro.p=this;
         this.add(vCadastro);
     }
     public void initTwo(boolean tipo) throws IOException{
         if (tipo){
-            Project.fac = new FacCliente();
+            this.fac = new FacCliente();
         }else{
-            Project.fac = new FacAdm();
+            this.fac = new FacAdm();
         }
-        Home h = Project.fac.getHome();
+        Home h = this.fac.getHome();
         View vHome = new View(h.getLoad().load(),"Home");
-        Configuracoes c = Project.fac.getConfig();
+        vHome.p=this;
+        Configuracoes c = this.fac.getConfig();
         View vConfig = new View(c.getLoad().load(),"Config");
+        vConfig.p=this;
         this.add(vHome);
         this.add(vConfig);
     }
     
-    public Scene getAtualCena(String tipo){
-        Scene c = null;
-        for(Observador ob: this.observadores){
+    public void getAtualCena(String tipo) throws Exception{
+        
+        for(View ob: this.observadores){
             if(this.viewAtual.equals(ob.getTipo())){
-                c = (Scene) ob;
+                ob.start(new Stage());
             }
         }
-        return c;
-    }
-    @Override
-    public void start(Stage stage) throws Exception {
-        initOne();
         
-        stage.setScene(getAtualCena(viewAtual));
-        
-        stage.show();
     }
-   
-    /**
-     * @param args the command line arguments
-     */
     
-    public static void main(String[] args) {
-        launch(args);
+    public void setCenaAtual(String s){
+        this.viewAtual=s;
+        notifique();
     }
     
 }

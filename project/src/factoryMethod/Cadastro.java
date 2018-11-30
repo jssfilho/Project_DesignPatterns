@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import observerProject.Project;
 
 public class Cadastro implements PaginaInicial{
     
@@ -66,7 +67,7 @@ public class Cadastro implements PaginaInicial{
 
     @FXML
     void cancelVoid(ActionEvent event) {
-
+        
     }
 
     @Override

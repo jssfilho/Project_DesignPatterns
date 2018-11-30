@@ -9,10 +9,11 @@ import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
+import factoryMethod.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import observerProject.Project;
 
 
 
@@ -35,7 +36,6 @@ public class Login implements PaginaInicial {
     
     public Login() throws IOException{
         this.loader= new FXMLLoader(getClass().getResource("login.fxml"));
-        System.out.println("Fudeu");
     }
     
     

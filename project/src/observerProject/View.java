@@ -6,20 +6,24 @@
 package observerProject;
 import bridgeProject.UsuarioSujeito;
 import abstractFactoryProject.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.application.Application;
 
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 /**
  *
  * @author Joao Santos
  */
-public class View extends Scene implements Observador{
-    private Project p;
+public class View extends Application implements Observador{
+    public Project p;
     private UsuarioSujeito ob = null;
     private String tipo;
     private boolean on;
-    
+    public Scene stag;
     /*
         Definir os dados observados
     */
@@ -30,7 +34,8 @@ public class View extends Scene implements Observador{
     }
 
     public View(Parent root, String tipo) {
-        super(root);
+        
+        this.stag= new Scene(root);
         this.tipo = tipo;
     }
     
@@ -51,4 +56,11 @@ public class View extends Scene implements Observador{
     public void setOb(UsuarioSujeito ob) {
         this.ob = ob;
     }
+    
+    @Override
+    public void start(Stage stage) throws Exception {
+        stage.setScene(this.stag);
+        stage.show();
+    }
+    
 }
