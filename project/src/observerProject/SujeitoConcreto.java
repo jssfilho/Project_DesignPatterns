@@ -1,5 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
+ * To change this license header, choose License Headers in SujeitoConcreto Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
 https://docs.oracle.com/javafx/2/fxml_get_started/custom_control.htm
@@ -17,40 +17,48 @@ import abstractFactoryProject.*;
 
 import factoryMethod.*;
 import java.io.IOException;
-import java.util.ArrayList;
 import javafx.application.Application;
-import javafx.scene.Scene;
+
 
 /**
  *
  * @author Joao Santos
  */
-public class Project  {
-    protected ArrayList<View> observadores = new ArrayList();
+public class SujeitoConcreto extends Sujeito {
     private Factory fac = null;
     private  FacDefault facd;
     public UsuarioSujeito u = null;
     public  String viewAtual = "Login";
     
     
-    public void add(View ob){
-        this.observadores.add(ob);
-    }
-    public void rem(View ob){
-        this.observadores.remove(ob);
-    }
-    public void notifique(){
-        for(Observador ob: this.observadores){
-            ob.update();
-        }
+    public SujeitoConcreto() throws IOException{
+        initOne();
+       
     }
     
     public UsuarioSujeito getU(){
         return u;
     }
-    public void setU(UsuarioSujeito u){
-        this.u=u;
+    public void setU() throws IOException{
+        initTwo(true);
     }
+  
+    
+    public View getAtualCena() throws Exception{
+        View ov = null;
+        for(View ob: this.observadores){
+            if(this.viewAtual.equals(ob.getTipo())){
+                ov = ob;
+            }
+        }
+        return ov;
+    }
+    
+    public void setCenaAtual(String s){
+        this.viewAtual=s;
+        notifique();
+    }
+    
     public void initOne() throws IOException{
         this.facd = new FacLogin();
         PaginaInicial d = this.facd.getCena();
@@ -77,21 +85,6 @@ public class Project  {
         vConfig.p=this;
         this.add(vHome);
         this.add(vConfig);
-    }
-    
-    public void getAtualCena(String tipo) throws Exception{
-        
-        for(View ob: this.observadores){
-            if(this.viewAtual.equals(ob.getTipo())){
-                ob.start(new Stage());
-            }
-        }
-        
-    }
-    
-    public void setCenaAtual(String s){
-        this.viewAtual=s;
-        notifique();
     }
     
 }

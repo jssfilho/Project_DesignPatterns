@@ -1,5 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
+ * To change this license header, choose License Headers in SujeitoConcreto Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
@@ -19,11 +19,10 @@ import javafx.stage.Stage;
  * @author Joao Santos
  */
 public class View extends Application implements Observador{
-    public Project p;
+    public SujeitoConcreto p;
     private UsuarioSujeito ob = null;
     private String tipo;
     private boolean on;
-    public Scene stag;
     /*
         Definir os dados observados
     */
@@ -34,10 +33,10 @@ public class View extends Application implements Observador{
     }
 
     public View(Parent root, String tipo) {
-        
-        this.stag= new Scene(root);
+        super(root);
         this.tipo = tipo;
     }
+    
     
     
     @Override
@@ -56,11 +55,11 @@ public class View extends Application implements Observador{
     public void setOb(UsuarioSujeito ob) {
         this.ob = ob;
     }
-    
+
     @Override
-    public void start(Stage stage) throws Exception {
-        stage.setScene(this.stag);
-        stage.show();
+    public void start(Stage primaryStage) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+  
 }

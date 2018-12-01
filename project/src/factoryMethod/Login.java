@@ -1,5 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
+ * To change this license header, choose License Headers in SujeitoConcreto Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
@@ -13,7 +13,7 @@ import factoryMethod.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import observerProject.Project;
+import observerProject.SujeitoConcreto;
 
 
 
