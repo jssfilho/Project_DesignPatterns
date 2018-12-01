@@ -14,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import observerProject.SujeitoConcreto;
+import observerProject.mainfx;
 
 public class Cadastro implements PaginaInicial{
     
@@ -67,7 +68,7 @@ public class Cadastro implements PaginaInicial{
 
     @FXML
     void cancelVoid(ActionEvent event) {
-        
+        mainfx.OnChangeScene("Login");
     }
 
     @Override

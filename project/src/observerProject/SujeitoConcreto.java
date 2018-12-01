@@ -24,7 +24,7 @@ import javafx.application.Application;
  *
  * @author Joao Santos
  */
-public class SujeitoConcreto extends Sujeito {
+public final class SujeitoConcreto extends Sujeito {
     private Factory fac = null;
     private  FacDefault facd;
     public UsuarioSujeito u = null;
@@ -33,7 +33,6 @@ public class SujeitoConcreto extends Sujeito {
     
     public SujeitoConcreto() throws IOException{
         initOne();
-       
     }
     
     public UsuarioSujeito getU(){
@@ -44,7 +43,7 @@ public class SujeitoConcreto extends Sujeito {
     }
   
     
-    public View getAtualCena() throws Exception{
+    public View getAtualCena(){
         View ov = null;
         for(View ob: this.observadores){
             if(this.viewAtual.equals(ob.getTipo())){

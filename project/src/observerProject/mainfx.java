@@ -16,19 +16,29 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Joao Santos
+ * @author j_ssf
  */
-public class mainFX {
-    
-    
+public class mainfx extends Application {
+    public static SujeitoConcreto c;
+    public static Stage stag;
+    @Override
+    public void start(Stage primaryStage) throws IOException {
+        mainfx.stag=primaryStage;
+        mainfx.c = new SujeitoConcreto();
+        primaryStage.setScene(mainfx.c.getAtualCena());
+        primaryStage.show();
+    }
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        SujeitoConcreto c = new SujeitoConcreto();
-      
-        
+        launch(args);
+    }
+    
+    public static void OnChangeScene(String n){
+        mainfx.c.setCenaAtual(n);
+        mainfx.stag.setScene(mainfx.c.getAtualCena());
     }
     
 }

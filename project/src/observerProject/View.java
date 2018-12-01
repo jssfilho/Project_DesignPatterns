@@ -18,7 +18,7 @@ import javafx.stage.Stage;
  *
  * @author Joao Santos
  */
-public class View extends Application implements Observador{
+public class View extends Scene implements Observador{
     public SujeitoConcreto p;
     private UsuarioSujeito ob = null;
     private String tipo;
@@ -55,11 +55,5 @@ public class View extends Application implements Observador{
     public void setOb(UsuarioSujeito ob) {
         this.ob = ob;
     }
-
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
   
 }

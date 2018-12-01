@@ -14,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import observerProject.SujeitoConcreto;
+import observerProject.mainfx;
 
 
 
@@ -42,7 +43,7 @@ public class Login implements PaginaInicial {
     @FXML
     @Override
     public void cadastrar(ActionEvent event) {
-        
+        mainfx.OnChangeScene("Cadastro");
     }
 
     @FXML
