@@ -5,6 +5,7 @@
  */
 package factoryMethod;
 
+import bridgeProject.UsuarioSujeito;
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,8 +14,8 @@ import factoryMethod.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import observerProject.SujeitoConcreto;
-import observerProject.mainfx;
+
+import observerProject.*;
 
 
 
@@ -37,6 +38,7 @@ public class Login implements PaginaInicial {
     
     public Login() throws IOException{
         this.loader= new FXMLLoader(getClass().getResource("login.fxml"));
+        
     }
     
     
@@ -47,8 +49,10 @@ public class Login implements PaginaInicial {
     }
 
     @FXML
-    void loginMet(ActionEvent event) {
-
+    void loginMet(ActionEvent event) throws IOException {
+        FacadeProject facc = new FacadeProject();
+        UsuarioSujeito u = facc.uG(this.loginID.getText(), this.senhaID.getText());
+        mainfx.c.setU(u);
     }
 
     @Override

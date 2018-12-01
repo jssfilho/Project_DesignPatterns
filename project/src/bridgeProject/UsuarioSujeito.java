@@ -19,6 +19,26 @@ public abstract class UsuarioSujeito {
     protected String rua;
     protected int num;
     protected String nome;
+    protected String senha;
+    protected boolean tipo;
+
+    public boolean isTipo() {
+        return tipo;
+    }
+
+    public void setTipo(boolean tipo) {
+        this.tipo = tipo;
+    }
+    
+    
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
     
     
     public String getEmail() {

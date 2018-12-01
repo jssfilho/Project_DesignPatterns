@@ -20,7 +20,6 @@ import javafx.stage.Stage;
  */
 public class View extends Scene implements Observador{
     public SujeitoConcreto p;
-    private UsuarioSujeito ob = null;
     private String tipo;
     private boolean on;
     /*
@@ -46,14 +45,6 @@ public class View extends Scene implements Observador{
         }else{
             this.on=false;
         }
-    }
-
-    public UsuarioSujeito getOb() {
-        return ob;
-    }
-
-    public void setOb(UsuarioSujeito ob) {
-        this.ob = ob;
     }
   
 }

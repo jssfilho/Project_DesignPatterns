@@ -45,7 +45,7 @@ public class HomeUsu implements Home{
 
     
      public HomeUsu() throws IOException{
-        FXMLLoader loade = new FXMLLoader(getClass().getResource("HomeUsu.fxml"));
+        FXMLLoader loade = new FXMLLoader(getClass().getResource("HomeUser.fxml"));
         this.loader=loade;
     }
     

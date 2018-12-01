@@ -7,11 +7,9 @@ package observerProject;
 
 import java.io.IOException;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import abstractFactoryProject.*;
+import factoryMethod.Login;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 /**
@@ -23,9 +21,12 @@ public class mainfx extends Application {
     public static Stage stag;
     @Override
     public void start(Stage primaryStage) throws IOException {
+        
         mainfx.stag=primaryStage;
         mainfx.c = new SujeitoConcreto();
         primaryStage.setScene(mainfx.c.getAtualCena());
+       
+      
         primaryStage.show();
     }
 
