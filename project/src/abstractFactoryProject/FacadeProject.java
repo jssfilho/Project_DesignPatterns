@@ -39,15 +39,27 @@ public class FacadeProject {
 
             if (rs.next() && rs.getInt("codStory")==0) {
                 u = new Cliente();
-                u.setCpf(id);
-                u.setEmail(id);
-                u.setNome("");
-                u.setBairro(id);
-                u.setRua(id);
-                u.setNum(0);
-                u.setSenha(senha);
+                u.setTipo(false);
+                u.setCpf(""+rs.getInt("cpf"));
+                u.setEmail(rs.getString("email"));
+                u.setNome(rs.getString("nome"));
+                u.setBairro(rs.getString("bairro"));
+                u.setRua(rs.getString("rua"));
+                u.setNum(rs.getInt("numero"));
+                u.setSenha(rs.getString("senha"));
             }else if(rs.next() && rs.getInt("codStory")!=0){
-                u = new Fornecedor();
+                
+                Fornecedor d = new Fornecedor();
+                d.setTipo(true);
+                d.setCpf(""+rs.getInt("cpf"));
+                d.setEmail(rs.getString("email"));
+                d.setNome(rs.getString("nome"));
+                d.setBairro(rs.getString("bairro"));
+                d.setRua(rs.getString("rua"));
+                d.setNum(rs.getInt("numero"));
+                d.setSenha(rs.getString("senha"));
+                d.setCodMyStore(""+rs.getInt("codStory"));
+                u = d;
             }else{
                 System.out.println("Login FALHOU");
             }
@@ -60,31 +72,7 @@ public class FacadeProject {
         return u;
     }
 
-    
-    /*
-    public Usuario uG(String nome, String senha){
-        Usuario c = new Cliente();
-        c.setEmail("j_ssfilho@hotmail.com");
-        c.setSenha("1234");
-        c.setTipo(false);
-  
-        Usuario f = new Fornecedor();
-        f.setTipo(true);
-        f.setEmail("joao.santos@academico.ifpb.edu.br");
-        f.setSenha("1234");
-        
-        Usuario u = null;
-        if(c.getEmail().equals(nome) && c.getSenha().equals(senha)){
-            u = c;
-        }else if(f.getEmail().equals(nome) && f.getSenha().equals(senha)){
-            u = f;
-        }else{
-            System.out.println("Usuario não encontrado");
-        }
-        
-        return u;
-    }
-    */
+   
     public void cadastrar(String senha,String nome, String email, int Cpf, String bairro, String rua, int num, String loja,int Cnpj) throws ClassNotFoundException, SQLException{
         Connection con = SingletonConnection.getConnection();
         
@@ -112,4 +100,12 @@ public class FacadeProject {
         }
     }
    
+    public void createProduto(String cod, float preco, String nome, String descricao, String opcao){
+        
+    }
+    public Produto getProd(String cod, String tipo){
+        
+        return null;
+    }
+    
 }

@@ -53,6 +53,8 @@ public class Login implements PaginaInicial {
     void loginMet(ActionEvent event) throws IOException, ClassNotFoundException {
         FacadeProject facc = new FacadeProject();
         Usuario u = facc.loginMet(this.loginID.getText(), this.senhaID.getText());
+        this.loginID.clear();
+        this.senhaID.clear();
         mainfx.c.setU(u);
     }
 

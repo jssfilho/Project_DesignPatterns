@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package bridgeProject;
-import bridgeProject.Usuario;
+
 import abstractFactoryProject.Loja;
 /**
  *
@@ -13,4 +13,21 @@ import abstractFactoryProject.Loja;
 public class Fornecedor extends Usuario{
     private Loja myStore;
     private String codMyStore;
+
+    public Loja getMyStore() {
+        return myStore;
+    }
+
+    public void setMyStore(Loja myStore) {
+        this.myStore = myStore;
+    }
+
+    public String getCodMyStore() {
+        return codMyStore;
+    }
+
+    public void setCodMyStore(String codMyStore) {
+        this.codMyStore = codMyStore;
+    }
+    
 }

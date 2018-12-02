@@ -25,7 +25,9 @@ public class Loja {
     private String codLoja;
     private HashMap<Produto, Integer> map = new HashMap<>();
     
-     @FXML
+    
+    
+    @FXML
     private Button config;
 
     @FXML

@@ -8,16 +8,16 @@ package abstractFactoryProject;
 import java.awt.event.InputMethodEvent;
 import java.io.IOException;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
+
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.Spinner;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import observerProject.mainfx;
@@ -36,7 +36,8 @@ public class HomeAdm implements Home{
 
     @FXML
     private Button home;
-
+    //aqui começa a parte de cadastro e remoção de produtos
+    
     @FXML
     private Button saveProdBtn;
     
@@ -48,6 +49,7 @@ public class HomeAdm implements Home{
 
     @FXML
     private TextField precoCadastro;
+
 
     @FXML
     private TextField nomeCadastro;
@@ -63,7 +65,8 @@ public class HomeAdm implements Home{
 
     @FXML
     private Button rmBtn;
-
+    //aqui termina
+    
     @FXML
     private TextField pesquisaEstoq;
 
@@ -82,9 +85,11 @@ public class HomeAdm implements Home{
     @FXML
     private RadioButton tipoCadastroVesti;
     
-    public HomeAdm() throws IOException{
+    private FacadeProject fP;
+    public HomeAdm() throws IOException, ClassNotFoundException{
         FXMLLoader loade = new FXMLLoader(getClass().getResource("HomeAdm.fxml"));
         this.loader=loade;
+        this.fP= new FacadeProject();
     }
     
     @FXML
@@ -103,7 +108,7 @@ public class HomeAdm implements Home{
     }
 
     @FXML
-    void cadastroVesti(ActionEvent event) {
+    void cadastroVesti(ActionEvent event)  {
         this.opcaoLbCadas.setText("Tamanho");
     }
 
@@ -113,10 +118,14 @@ public class HomeAdm implements Home{
     }
 
     @FXML
-    void salvaProduto(ActionEvent event) {
-        
-    }
+    void salvaProduto(ActionEvent event) throws  RuntimeException{
+       try{
+        this.fP.createProduto(this.codCadastro.getText(),Float.parseFloat(this.precoCadastro.getText()), this.nomeCadastro.getText(), this.descriCadastro.getText(), this.opcaoCadastro.getText());
     
+       }catch(RuntimeException erroDigit){
+           throw new RuntimeException("Erro na conexão ", erroDigit);
+       }
+    }
     @Override
     @FXML
     public void clickHome() {

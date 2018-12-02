@@ -24,7 +24,51 @@ public abstract class Produto {
     protected String descricao;
     protected String lote;
     protected Date dCompra;
+    protected String codLoja;
 
+    public BauProduto getBau() {
+        return bau;
+    }
+
+    public void setBau(BauProduto bau) {
+        this.bau = bau;
+    }
+
+    public String getCodBarra() {
+        return codBarra;
+    }
+
+    public void setCodBarra(String codBarra) {
+        this.codBarra = codBarra;
+    }
+
+    public String getLote() {
+        return lote;
+    }
+
+    public void setLote(String lote) {
+        this.lote = lote;
+    }
+
+    public Date getdCompra() {
+        return dCompra;
+    }
+
+    public void setdCompra(Date dCompra) {
+        this.dCompra = dCompra;
+    }
+
+    public String getCodLoja() {
+        return codLoja;
+    }
+
+    public void setCodLoja(String codLoja) {
+        this.codLoja = codLoja;
+    }
+    
+    
+    
+    
     public float getPreco() {
         return preco;
     }
