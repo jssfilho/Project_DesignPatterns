@@ -17,6 +17,7 @@ public abstract class Produto {
     * nome do produto contendo sua marca/fabricante
     * descrição do produto contendo seu tipo: bebida alcolica, carne, etc
     */
+    protected BauProduto bau;
     protected String codBarra;
     protected float preco;
     protected String nome;

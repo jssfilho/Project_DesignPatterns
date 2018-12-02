@@ -4,13 +4,13 @@
  * and open the template in the editor.
  */
 package bridgeProject;
-import bridgeProject.UsuarioSujeito;
+import bridgeProject.Usuario;
 import abstractFactoryProject.Loja;
 /**
  *
  * @author Joao Santos
  */
-public class Fornecedor extends UsuarioSujeito{
+public class Fornecedor extends Usuario{
     private Loja myStore;
     private String codMyStore;
 }

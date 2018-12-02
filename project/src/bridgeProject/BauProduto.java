@@ -5,13 +5,10 @@
  */
 package bridgeProject;
 
-import bridgeProject.Usuario;
-import java.util.ArrayList;
-
 /**
  *
  * @author Joao Santos
  */
-public class Cliente extends Usuario{
-    private ArrayList<Pedido> ps;
+public interface BauProduto {
+    public Produto getProduto(int tipo);
 }

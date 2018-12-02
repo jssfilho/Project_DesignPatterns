@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package observerProject;
-import bridgeProject.UsuarioSujeito;
+import bridgeProject.Usuario;
 import abstractFactoryProject.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;

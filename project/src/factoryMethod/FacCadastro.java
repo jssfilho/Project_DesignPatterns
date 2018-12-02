@@ -5,11 +5,11 @@
  */
 package factoryMethod;
 
-import javafx.scene.Parent;
+
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.fxml.FXMLLoader;
+
 
 
 /**
@@ -24,6 +24,8 @@ public class FacCadastro extends FacDefault {
         try {
             root = new Cadastro();
         } catch (IOException ex) {
+            Logger.getLogger(FacCadastro.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
             Logger.getLogger(FacCadastro.class.getName()).log(Level.SEVERE, null, ex);
         }
         return root;

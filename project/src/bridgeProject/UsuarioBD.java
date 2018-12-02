@@ -7,8 +7,13 @@ package bridgeProject;
 
 /**
  *
- * @author Joao Santos
+ * @author j_ssf
  */
-public interface Armazenamento {
-    public Produto getProduto(int tipo);
+public class UsuarioBD implements BauUsuario{
+    
+    @Override
+    public void getDados(String cod) {
+        
+    }
+    
 }

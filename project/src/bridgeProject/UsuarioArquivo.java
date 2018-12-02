@@ -7,14 +7,13 @@ package bridgeProject;
 
 /**
  *
- * @author Joao Santos
+ * @author j_ssf
  */
-public class ArquivoObjeto implements BauProduto{
+public class UsuarioArquivo implements BauUsuario{
 
     @Override
-    public Produto getProduto(int tipo) {
-        Produto p =null;
-        return p;
+    public void getDados(String cod) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

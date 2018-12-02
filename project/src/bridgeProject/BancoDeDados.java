@@ -9,7 +9,7 @@ package bridgeProject;
  *
  * @author Joao Santos
  */
-public class BancoDeDados implements Armazenamento {
+public class BancoDeDados implements BauProduto {
 
     @Override
     public Produto getProduto(int tipo) {

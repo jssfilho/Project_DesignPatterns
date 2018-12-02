@@ -5,14 +5,14 @@
  */
 package bridgeProject;
 
-import java.util.ArrayList;
-import observerProject.Observador;
+
 
 /**
  *
  * @author Joao Santos
  */
-public abstract class UsuarioSujeito {
+public abstract class Usuario {
+    protected BauUsuario bau;
     protected String email;
     protected String cpf;
     protected String bairro;

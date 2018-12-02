@@ -5,12 +5,17 @@
  */
 package factoryMethod;
 
+import abstractFactoryProject.FacadeProject;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 
@@ -18,7 +23,7 @@ import observerProject.mainfx;
 
 public class Cadastro implements PaginaInicial{
     
-  
+    private FacadeProject f;
     @FXML
     private TextField nomeUser;
 
@@ -42,6 +47,13 @@ public class Cadastro implements PaginaInicial{
 
     @FXML
     private TextField cnpj;
+    
+    @FXML
+    private PasswordField senhaUser;
+    
+    @FXML
+    private PasswordField senhaUserC;
+    
 
     @FXML
     private RadioButton tipoUserV;
@@ -58,29 +70,48 @@ public class Cadastro implements PaginaInicial{
     public FXMLLoader loader;
     
     
-    public Cadastro() throws IOException{
+    public Cadastro() throws IOException, ClassNotFoundException{
         FXMLLoader loade = new FXMLLoader(getClass().getResource("cadastro.fxml"));
         this.loader=loade;
+        this.f = new FacadeProject();
     }
     
     @FXML
     void onActComprador(ActionEvent event) {
         if(!this.nomeLoja.isDisable()){
             this.nomeLoja.setDisable(true);
-            this.cnpj.setDisable(true);}
+            this.cnpj.setDisable(true);
+        }
     }
     @FXML
     void onActVendedor(ActionEvent event) {
         if(this.nomeLoja.isDisable()){
             this.nomeLoja.setDisable(false);
-            this.cnpj.setDisable(false);}
+            this.cnpj.setDisable(false);
+        }
     }
 
     
     @FXML
     @Override
     public void cadastrar(ActionEvent event) {
-
+        if(this.nomeLoja.isDisable()){
+            try {
+                this.f.cadastrar(this.senhaUser.getText(), this.nomeUser.getText(),this.emailUser.getText(),Integer.parseInt(this.cpfUser.getText()), this.bairro.getText(), this.rua.getText(), Integer.parseInt(this.numEndereco.getText()), "DEFAULT", 0);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else{
+            try {
+                this.f.cadastrar(this.senhaUser.getText(), this.nomeUser.getText(),this.emailUser.getText(),Integer.parseInt(this.cpfUser.getText()), this.bairro.getText(), this.rua.getText(), Integer.parseInt(this.numEndereco.getText()), this.nomeLoja.getText(), Integer.parseInt(this.cnpj.getText()));
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 
     @FXML

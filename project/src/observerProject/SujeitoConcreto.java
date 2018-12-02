@@ -7,6 +7,7 @@ https://stackoverflow.com/questions/40698481/javafx-errors-with-fxmlloader-loadg
  */
 package observerProject;
 
+import abstractFactoryProject.FacadeProject;
 import bridgeProject.*;
 import abstractFactoryProject.*;
 import factoryMethod.*;
@@ -21,7 +22,7 @@ public final class SujeitoConcreto extends Sujeito {
     private Factory fac = null;
     private FacDefault facd;
     private FacadeProject fP;
-    public UsuarioSujeito u;
+    public Usuario u;
 
     public SujeitoConcreto(FacDefault facd, FacadeProject fP) {
         this.facd = facd;
@@ -35,10 +36,10 @@ public final class SujeitoConcreto extends Sujeito {
         initOne();
     }
     
-    public UsuarioSujeito getU(){
+    public Usuario getU(){
         return this.u;
     }
-    public void setU(UsuarioSujeito u) throws IOException{
+    public void setU(Usuario u) throws IOException{
         if(u!=null){
             this.u = u;
             if (this.u.isTipo()){
@@ -59,7 +60,11 @@ public final class SujeitoConcreto extends Sujeito {
             this.add(vConfig);
             mainfx.OnChangeScene("Home");
         }else{
-            System.out.println("Entrou aqui");
+            
+            for(Observador ob: this.observadores){
+                if(ob.getTipo().equals("Home") || ob.getTipo().equals("Config"))
+                    this.rem((View) ob);
+            }
         }
     }
   
