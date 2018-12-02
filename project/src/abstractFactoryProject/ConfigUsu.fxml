@@ -10,9 +10,9 @@
    <top>
       <AnchorPane prefHeight="25.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="60.0" mnemonicParsing="false" prefWidth="60.0" text="Config" />
-            <Button layoutX="120.0" mnemonicParsing="false" prefWidth="60.0" text="Sair" />
-            <Button mnemonicParsing="false" prefWidth="60.0" text="Home" />
+            <Button fx:id="config" layoutX="60.0" mnemonicParsing="false" onAction="#clickEdite" prefWidth="60.0" text="Config" />
+            <Button fx:id="sair" layoutX="120.0" mnemonicParsing="false" onAction="#clickSair" prefWidth="60.0" text="Sair" />
+            <Button fx:id="home" mnemonicParsing="false" onAction="#clickHome" prefWidth="60.0" text="Home" />
          </children>
       </AnchorPane>
    </top>

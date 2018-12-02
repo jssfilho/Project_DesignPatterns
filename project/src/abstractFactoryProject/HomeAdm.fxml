@@ -2,16 +2,17 @@
 
 <?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="abstractFactoryProject.HomeAdm">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="abstractFactoryProject.HomeAdm">
    <top>
       <AnchorPane prefHeight="25.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
@@ -38,13 +39,19 @@
                                     <Label layoutX="74.0" layoutY="152.0" text="Nome" />
                                     <Label layoutX="58.0" layoutY="180.0" text="Descrição" />
                                     <Label layoutX="121.0" layoutY="14.0" text="Cadastrar" />
-                                    <ChoiceBox fx:id="tipoCadastroProd" accessibleRoleDescription="3" layoutX="70.0" layoutY="31.0" onInputMethodTextChanged="#cadastroTipo" prefWidth="150.0" />
                                     <Label fx:id="opcaoLbCadas" layoutX="67.0" layoutY="242.0" text="Opção" />
                                     <TextField fx:id="codCadastro" layoutX="130.0" layoutY="79.0" />
                                     <TextField fx:id="precoCadastro" layoutX="130.0" layoutY="112.0" />
                                     <TextField fx:id="nomeCadastro" layoutX="130.0" layoutY="148.0" />
                                     <TextArea fx:id="descriCadastro" layoutX="131.0" layoutY="180.0" prefHeight="45.0" prefWidth="147.0" />
                                     <TextField fx:id="opcaoCadastro" layoutX="130.0" layoutY="238.0" />
+                                    <RadioButton fx:id="tipoCadastroAlim" layoutX="14.0" layoutY="31.0" mnemonicParsing="false" onAction="#cadastroAlimento" text="Alimento">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="tipoCadastro" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton fx:id="tipoCadastroEletro" layoutX="103.0" layoutY="31.0" mnemonicParsing="false" onAction="#cadastroEletro" text="Eletrônico" toggleGroup="$tipoCadastro" />
+                                    <RadioButton fx:id="tipoCadastroVesti" layoutX="192.0" layoutY="31.0" mnemonicParsing="false" onAction="#cadastroVesti" text="Vestimenta" toggleGroup="$tipoCadastro" />
                                  </children>
                               </AnchorPane>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
@@ -69,7 +76,7 @@
                           <items>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                                  <children>
-                                    <TextField fx:id="pesquisaEstoq" layoutX="75.0" layoutY="96.0" onInputMethodTextChanged="#getProdEstoq" />
+                                    <TextField fx:id="pesquisaEstoq" layoutX="75.0" layoutY="96.0" />
                                     <Label layoutX="22.0" layoutY="146.0" text="Nome" />
                                     <Label layoutX="75.0" layoutY="145.0" text="Preço" />
                                     <Label layoutX="127.0" layoutY="146.0" text="Quantidade" />

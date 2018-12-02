@@ -12,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import observerProject.mainfx;
 
 
 /**
@@ -62,19 +63,19 @@ public class HomeUsu implements Home{
     @Override
     @FXML
     public void clickHome() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        mainfx.OnChangeScene("Home");
     }
 
     @Override
     @FXML
     public void clickEdite() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        mainfx.OnChangeScene("Config");
     }
 
     @Override
     @FXML
     public void clickSair() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        mainfx.OnChangeScene("Login");
     }
 
     @Override

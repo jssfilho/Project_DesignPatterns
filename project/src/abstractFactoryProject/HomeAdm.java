@@ -7,18 +7,20 @@ package abstractFactoryProject;
 
 import java.awt.event.InputMethodEvent;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
+
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import observerProject.mainfx;
 
 /**
  *
@@ -37,10 +39,7 @@ public class HomeAdm implements Home{
 
     @FXML
     private Button saveProdBtn;
-
-    @FXML
-    private ChoiceBox tipoCadastroProd = new ChoiceBox(FXCollections.observableArrayList("Alimento", "Eletrônico", "Vestimenta"));;
-
+    
     @FXML
     private Label opcaoLbCadas;
 
@@ -74,6 +73,15 @@ public class HomeAdm implements Home{
     @FXML
     private Label valorReceita;
     
+    @FXML
+    private RadioButton tipoCadastroAlim;
+
+    @FXML
+    private RadioButton tipoCadastroEletro;
+
+    @FXML
+    private RadioButton tipoCadastroVesti;
+    
     public HomeAdm() throws IOException{
         FXMLLoader loade = new FXMLLoader(getClass().getResource("HomeAdm.fxml"));
         this.loader=loade;
@@ -85,19 +93,18 @@ public class HomeAdm implements Home{
     }
 
     @FXML
-    void cadastroTipo(InputMethodEvent event){
-        String v = (String) this.tipoCadastroProd.getValue();
-        switch (v) {
-            case "Alimento":
-                this.opcaoLbCadas.setText("Validade");
-                break;
-            case "Eletrônico":
-                this.opcaoLbCadas.setText("Garantia");
-                break;
-            default:
-                this.opcaoLbCadas.setText("Tamanho");
-                break;
-        }
+    void cadastroAlimento(ActionEvent event) {
+        this.opcaoLbCadas.setText("Válidade");
+    }
+
+    @FXML
+    void cadastroEletro(ActionEvent event) {
+        this.opcaoLbCadas.setText("Garantia");
+    }
+
+    @FXML
+    void cadastroVesti(ActionEvent event) {
+        this.opcaoLbCadas.setText("Tamanho");
     }
 
     @FXML
@@ -113,20 +120,20 @@ public class HomeAdm implements Home{
     @Override
     @FXML
     public void clickHome() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        mainfx.OnChangeScene("Home");
     }
 
     @Override
     @FXML
     public void clickEdite() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        mainfx.OnChangeScene("Config");
     }
 
     @Override
     @FXML
     public void clickSair() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        mainfx.OnChangeScene("Login");
+    } 
 
     @Override
     public FXMLLoader getLoad() {

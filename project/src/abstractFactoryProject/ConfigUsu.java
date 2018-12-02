@@ -6,8 +6,11 @@
 package abstractFactoryProject;
 
 import java.io.IOException;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
+
+import javafx.scene.control.Button;
+import observerProject.mainfx;
 
 /**
  *
@@ -15,27 +18,38 @@ import javafx.scene.Parent;
  */
 public class ConfigUsu implements Configuracoes{
     public FXMLLoader loader;
+    @FXML
+    private Button config;
+
+    @FXML
+    private Button sair;
+
+    @FXML
+    private Button home;
     
     
     
     public ConfigUsu() throws IOException{
-        FXMLLoader loade = new FXMLLoader(getClass().getResource("HomeAdm.fxml"));
+        FXMLLoader loade = new FXMLLoader(getClass().getResource("ConfigUsu.fxml"));
         this.loader=loade;
     }
     
     @Override
+    @FXML
     public void clickHome() {
-        
+        mainfx.OnChangeScene("Home");
     }
 
     @Override
+    @FXML
     public void clickEdite() {
- 
+        mainfx.OnChangeScene("Config");
     }
 
     @Override
+    @FXML
     public void clickSair() {
-        
+        mainfx.OnChangeScene("Login");
     }
 
     @Override

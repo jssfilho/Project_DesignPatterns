@@ -4,9 +4,10 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="factoryMethod.Cadastro">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="factoryMethod.Cadastro">
    <children>
       <AnchorPane layoutX="14.0" layoutY="66.0" prefHeight="241.0" prefWidth="287.0">
          <children>
@@ -32,8 +33,11 @@
             <Label layoutX="8.0" layoutY="86.0" text="CNPJ da Loja" />
          </children>
       </AnchorPane>
-      <RadioButton fx:id="tipoUser" layoutX="158.0" layoutY="34.0" mnemonicParsing="false" text="Comprador" />
-      <RadioButton fx:id="tipoUser" layoutX="360.0" layoutY="34.0" mnemonicParsing="false" text="Vendedor" />
+      <RadioButton fx:id="tipoUserC" layoutX="158.0" layoutY="34.0" mnemonicParsing="false" onAction="#onActComprador" text="Comprador">
+         <toggleGroup>
+            <ToggleGroup fx:id="tipoCadastro" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="tipoUserV" layoutX="360.0" layoutY="34.0" mnemonicParsing="false" onAction="#onActVendedor" text="Vendedor" toggleGroup="$tipoCadastro" />
       <Button fx:id="cadastroBtn" layoutX="207.0" layoutY="347.0" mnemonicParsing="false" onAction="#cadastrar" text="Cadastrar" />
       <Button fx:id="cancel" layoutX="314.0" layoutY="347.0" mnemonicParsing="false" onAction="#cancelVoid" text="Cancelar" />
    </children>

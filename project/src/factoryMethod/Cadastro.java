@@ -9,11 +9,11 @@ import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-import observerProject.SujeitoConcreto;
+
 import observerProject.mainfx;
 
 public class Cadastro implements PaginaInicial{
@@ -44,8 +44,11 @@ public class Cadastro implements PaginaInicial{
     private TextField cnpj;
 
     @FXML
-    private RadioButton tipoUser;
-
+    private RadioButton tipoUserV;
+    
+    @FXML
+    private RadioButton tipoUserC;
+    
     @FXML
     private Button cadastroBtn;
 
@@ -59,6 +62,20 @@ public class Cadastro implements PaginaInicial{
         FXMLLoader loade = new FXMLLoader(getClass().getResource("cadastro.fxml"));
         this.loader=loade;
     }
+    
+    @FXML
+    void onActComprador(ActionEvent event) {
+        if(!this.nomeLoja.isDisable()){
+            this.nomeLoja.setDisable(true);
+            this.cnpj.setDisable(true);}
+    }
+    @FXML
+    void onActVendedor(ActionEvent event) {
+        if(this.nomeLoja.isDisable()){
+            this.nomeLoja.setDisable(false);
+            this.cnpj.setDisable(false);}
+    }
+
     
     @FXML
     @Override
