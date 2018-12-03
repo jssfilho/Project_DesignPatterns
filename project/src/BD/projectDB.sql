@@ -18,6 +18,15 @@ create table usuario.cliente (
     rua varchar(30) not null,
     numero integer not null,
     senha varchar(10) not null,
+);
+create table usuario.fornecedor (
+    cpf integer primary key,
+    email varchar(50) not null,
+    nome varchar(50) not null,
+    bairro varchar(25) not null,
+    rua varchar(30) not null,
+    numero integer not null,
+    senha varchar(10) not null,
     codStory integer unique
 );
 
