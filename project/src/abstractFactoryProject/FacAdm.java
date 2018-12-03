@@ -34,7 +34,7 @@ public class FacAdm extends Factory{
         Home root=null; 
         try {
             root = new HomeAdm();
-        } catch (IOException ex) {
+        } catch (IOException | ClassNotFoundException ex) {
             Logger.getLogger(FacAdm.class.getName()).log(Level.SEVERE, null, ex);
         }
         return root;

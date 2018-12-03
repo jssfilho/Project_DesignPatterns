@@ -35,12 +35,12 @@ create table produto.alimento(
     anoCompra integer
 );
 create table produto.roupa(
-	codBarra integer primary key,
+    codBarra integer primary key,
     preco double precision,
     nome varchar(20),
     descricao varchar(150),
     lote integer,
-	tamanho varchar(2),
+    tamanho varchar(2),
     diaCompra integer,
     mesCompra integer,
     anoCompra integer
