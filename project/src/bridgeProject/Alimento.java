@@ -14,6 +14,10 @@ import java.util.Date;
 public class Alimento extends Produto{
     private Date validade;
 
+    public Alimento(String codBarra, float preco, String nome, String descricao) {
+        super(codBarra, preco, nome, descricao);
+    }
+    
     public Date getValidade() {
         return validade;
     }

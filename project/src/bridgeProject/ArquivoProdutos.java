@@ -9,10 +9,10 @@ package bridgeProject;
  *
  * @author Joao Santos
  */
-public class ArquivoObjeto implements BauProduto{
+public class ArquivoProdutos implements BauProduto{
 
     @Override
-    public Produto getProduto(int tipo) {
+    public Produto getProduto(int tipo, String codBarra) {
         Produto p =null;
         return p;
     }

@@ -97,7 +97,7 @@ public class Cadastro implements PaginaInicial{
     public void cadastrar(ActionEvent event) {
         if(this.nomeLoja.isDisable()){
             try {
-                this.f.cadastrar(this.senhaUser.getText(), this.nomeUser.getText(),this.emailUser.getText(),Integer.parseInt(this.cpfUser.getText()), this.bairro.getText(), this.rua.getText(), Integer.parseInt(this.numEndereco.getText()), "DEFAULT", 0);
+                this.f.cadastrar(this.senhaUser.getText(), this.nomeUser.getText(),this.emailUser.getText(),this.cpfUser.getText(), this.bairro.getText(), this.rua.getText(), Integer.parseInt(this.numEndereco.getText()));
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
             } catch (SQLException ex) {
@@ -105,7 +105,7 @@ public class Cadastro implements PaginaInicial{
             }
         }else{
             try {
-                this.f.cadastrar(this.senhaUser.getText(), this.nomeUser.getText(),this.emailUser.getText(),Integer.parseInt(this.cpfUser.getText()), this.bairro.getText(), this.rua.getText(), Integer.parseInt(this.numEndereco.getText()), this.nomeLoja.getText(), Integer.parseInt(this.cnpj.getText()));
+                this.f.cadastrar(this.senhaUser.getText(), this.nomeUser.getText(),this.emailUser.getText(),this.cpfUser.getText(), this.bairro.getText(), this.rua.getText(), Integer.parseInt(this.numEndereco.getText()), this.nomeLoja.getText(), this.cnpj.getText());
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
             } catch (SQLException ex) {

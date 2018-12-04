@@ -12,6 +12,11 @@ package bridgeProject;
 public class Vestimenta extends Produto{
     private String tamanho;
 
+    public Vestimenta(String tamanho, String codBarra, float preco, String nome, String descricao) {
+        super(codBarra, preco, nome, descricao);
+        this.tamanho = tamanho;
+    }
+    
     public String getTamanho() {
         return tamanho;
     }

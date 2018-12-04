@@ -26,6 +26,13 @@ public abstract class Produto {
     protected Date dCompra;
     protected String codLoja;
 
+    public Produto(String codBarra, float preco, String nome, String descricao) {
+        this.codBarra = codBarra;
+        this.preco = preco;
+        this.nome = nome;
+        this.descricao = descricao;
+    }
+    
     public BauProduto getBau() {
         return bau;
     }

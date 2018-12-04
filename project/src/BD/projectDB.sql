@@ -3,15 +3,23 @@ create schema usuario;
 create schema produto;
 create schema dados;
 
-create table dados.fatTempo(
-    dia integer,
-    mes integer,
-    ano integer,
-    valor double precision
+create table usuario.loja(
+    cod varchar(20) primary key,
+    nome varchar(35) not null
 );
 
+
+create table dados.pedidos{
+    codPedido integer primary key,
+    codCliente varchar(20),
+    codLoja varchar(20),
+    valor double precision,
+    foreign key codCliente references usuario.cliente(cpf),
+    foreign key codLoja references usuario.loja(cod)
+}
+
 create table usuario.cliente (
-    cpf integer primary key,
+    cpf varchar(20) primary key,
     email varchar(50) not null,
     nome varchar(50) not null,
     bairro varchar(25) not null,
@@ -20,31 +28,32 @@ create table usuario.cliente (
     senha varchar(10) not null,
 );
 create table usuario.fornecedor (
-    cpf integer primary key,
+    cpf varchar(20) primary key,
     email varchar(50) not null,
     nome varchar(50) not null,
     bairro varchar(25) not null,
     rua varchar(30) not null,
     numero integer not null,
     senha varchar(10) not null,
-    codStory integer unique
+    codStory varchar(20) unique,
+    foreign key codStory references usuario.loja(cod)
 );
 
 create table produto.alimento(
-    codBarra integer primary key,
+    codBarra varchar(20) primary key,
     preco double precision,
     nome varchar(20),
     descricao varchar(150),
     lote integer,
-    diaVal integer,
-    mesVal integer,
-    anoVal integer,
-    diaCompra integer,
-    mesCompra integer,
-    anoCompra integer
+    diaVal varchar(2),
+    mesVal varchar(2),
+    anoVal varchar(2),
+    diaCompra varchar(2),
+    mesCompra varchar(2),
+    anoCompra varchar(2)
 );
 create table produto.roupa(
-    codBarra integer primary key,
+    codBarra varchar(20) primary key,
     preco double precision,
     nome varchar(20),
     descricao varchar(150),
@@ -55,14 +64,14 @@ create table produto.roupa(
     anoCompra integer
 );
 create table produto.eletro(
-	codBarra integer primary key,
+    codBarra varchar(20) primary key,
     preco double precision,
     nome varchar(20),
     descricao varchar(150),
     lote integer,
-	garantia int,
-    diaCompra integer,
-    mesCompra integer,
-    anoCompra integer
+    garantia varchar(3),
+    diaCompra varchar(2),
+    mesCompra varchar(2),
+    anoCompra varchar(2)
 );
 

@@ -10,5 +10,18 @@ package bridgeProject;
  * @author Joao Santos
  */
 public class Eletronico extends Produto{
-    private int garantia;
+    private String garantia;
+
+    public Eletronico(String garantia, String codBarra, float preco, String nome, String descricao) {
+        super(codBarra, preco, nome, descricao);
+        this.garantia = garantia;
+    }
+    
+    public String getGarantia() {
+        return garantia;
+    }
+
+    public void setGarantia(String garantia) {
+        this.garantia = garantia;
+    }
 }
