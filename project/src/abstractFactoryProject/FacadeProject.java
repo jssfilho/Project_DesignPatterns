@@ -31,16 +31,17 @@ public class FacadeProject {
         Usuario u=null;
         try {
 
-            stmt = con.prepareStatement("SELECT * FROM usuario.cliente WHERE email = ? and senha = ?");
-            stmt.setString(1, id);
-            stmt.setString(2, senha);
-
-            rs = stmt.executeQuery();
+            
 
             if (rs.next() && rs.getString("codStory")==null) {
+                stmt = con.prepareStatement("SELECT * FROM usuario.cliente WHERE email = ? and senha = ?");
+                stmt.setString(1, id);
+                stmt.setString(2, senha);
+
+                rs = stmt.executeQuery();
                 u = new Cliente();
                 u.setTipo(false);
-                u.setCpf(""+rs.getString("cpf"));
+                u.setCpf(rs.getString("cpf"));
                 u.setEmail(rs.getString("email"));
                 u.setNome(rs.getString("nome"));
                 u.setBairro(rs.getString("bairro"));
@@ -48,7 +49,11 @@ public class FacadeProject {
                 u.setNum(rs.getInt("numero"));
                 u.setSenha(rs.getString("senha"));
             }else if(rs.next()){
-                
+                stmt = con.prepareStatement("SELECT * FROM usuario.fornecedor WHERE email = ? and senha = ?");
+                stmt.setString(1, id);
+                stmt.setString(2, senha);
+
+                rs = stmt.executeQuery();
                 Fornecedor d = new Fornecedor();
                 d.setTipo(true);
                 d.setCpf(""+rs.getString("cpf"));
