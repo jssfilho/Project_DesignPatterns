@@ -26,11 +26,12 @@ public class SingletonConnection {
     private static final String URL = "jdbc:mysql://localhost:3306/project";
     private static final String USER = "root";
     private static final String PASS = "";
-    
+    private static Connection conec= null;
     public static Connection getConnection() throws ClassNotFoundException{
         try {
             Class.forName(DRIVER);
-            return  DriverManager.getConnection(URL, USER, PASS);
+            SingletonConnection.conec =  DriverManager.getConnection(URL, USER, PASS);
+            return SingletonConnection.conec;
         } catch (ClassNotFoundException | SQLException ex) {
             throw new RuntimeException("Erro na conexão ", ex);
         }
