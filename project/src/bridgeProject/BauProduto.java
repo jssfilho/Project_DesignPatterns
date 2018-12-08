@@ -5,12 +5,11 @@
  */
 package bridgeProject;
 
-import java.sql.SQLException;
 
 /**
  *
  * @author Joao Santos
  */
 public interface BauProduto {
-    public Produto getProduto(int tipo, String codBarra);
+    public Produto getProduto(String codBarra);
 }

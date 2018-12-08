@@ -12,7 +12,7 @@ package bridgeProject;
 public class ArquivoProdutos implements BauProduto{
 
     @Override
-    public Produto getProduto(int tipo, String codBarra) {
+    public Produto getProduto(String codBarra) {
         Produto p =null;
         return p;
     }

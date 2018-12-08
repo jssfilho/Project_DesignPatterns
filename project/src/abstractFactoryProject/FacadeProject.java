@@ -19,6 +19,7 @@ import java.util.logging.Logger;
  */
 public class FacadeProject {
     private Connection con=null;
+    private BancoProdutos fb;
 
     public FacadeProject() throws ClassNotFoundException {
         this.con = SingletonConnection.getConnection();
@@ -27,18 +28,22 @@ public class FacadeProject {
     public Usuario loginMet(String id, String senha) throws ClassNotFoundException{
         Connection con = SingletonConnection.getConnection();
         PreparedStatement stmt = null;
-        ResultSet rs = null;
+        ResultSet rs=null;
+        ResultSet rs2=null;
         Usuario u=null;
         try {
 
             
-
-            if (rs.next() && rs.getString("codStory")==null) {
-                stmt = con.prepareStatement("SELECT * FROM usuario.cliente WHERE email = ? and senha = ?");
-                stmt.setString(1, id);
-                stmt.setString(2, senha);
-
-                rs = stmt.executeQuery();
+            stmt = con.prepareStatement("SELECT * FROM usuario.fornecedor WHERE email = ? and senha = ?");
+            stmt.setString(1, id);
+            stmt.setString(2, senha);
+            rs = stmt.executeQuery();
+            stmt = con.prepareStatement("SELECT * FROM usuario.cliente WHERE email = ? and senha = ?");
+            stmt.setString(1, id);
+            stmt.setString(2, senha);
+            rs2 = stmt.executeQuery();
+            
+            if (rs2.next()) {
                 u = new Cliente();
                 u.setTipo(false);
                 u.setCpf(rs.getString("cpf"));
@@ -49,11 +54,6 @@ public class FacadeProject {
                 u.setNum(rs.getInt("numero"));
                 u.setSenha(rs.getString("senha"));
             }else if(rs.next()){
-                stmt = con.prepareStatement("SELECT * FROM usuario.fornecedor WHERE email = ? and senha = ?");
-                stmt.setString(1, id);
-                stmt.setString(2, senha);
-
-                rs = stmt.executeQuery();
                 Fornecedor d = new Fornecedor();
                 d.setTipo(true);
                 d.setCpf(""+rs.getString("cpf"));
@@ -137,8 +137,8 @@ public class FacadeProject {
         }
     }
    
-    public void createProduto(String cod, float preco, String nome, String descricao, String opcao){
-        
+    public void createProduto(int tipo, String cod, float preco, String nome, String descricao, String opcao){
+        //fb.createProduto(0, p);
     }
     public Produto getProd(String cod, int tipo){
         

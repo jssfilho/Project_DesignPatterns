@@ -85,6 +85,8 @@ public class HomeAdm implements Home{
     @FXML
     private RadioButton tipoCadastroVesti;
     
+    private int tipoProd;
+    
     private FacadeProject fP;
     public HomeAdm() throws IOException, ClassNotFoundException{
         FXMLLoader loade = new FXMLLoader(getClass().getResource("HomeAdm.fxml"));
@@ -100,6 +102,7 @@ public class HomeAdm implements Home{
     @FXML
     void cadastroAlimento(ActionEvent event) {
         this.opcaoLbCadas.setText("Válidade");
+        this.tipoProd=1;
     }
 
     @FXML
@@ -120,7 +123,7 @@ public class HomeAdm implements Home{
     @FXML
     void salvaProduto(ActionEvent event) throws  RuntimeException{
        try{
-        this.fP.createProduto(this.codCadastro.getText(),Float.parseFloat(this.precoCadastro.getText()), this.nomeCadastro.getText(), this.descriCadastro.getText(), this.opcaoCadastro.getText());
+        //this.fP.createProduto(this.codCadastro.getText(),Float.parseFloat(this.precoCadastro.getText()), this.nomeCadastro.getText(), this.descriCadastro.getText(), this.opcaoCadastro.getText());
     
        }catch(RuntimeException erroDigit){
            throw new RuntimeException("Erro na conexão ", erroDigit);
