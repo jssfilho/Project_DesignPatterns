@@ -5,6 +5,7 @@
  */
 package abstractFactoryProject;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 
@@ -14,9 +15,9 @@ import javafx.scene.Parent;
  */
 public interface Configuracoes {
     public FXMLLoader getLoad();
-    public void clickHome();
-    public void clickEdite();
-    public void clickSair();
-    public void clickSalvar();
-    public void clickCancel();
+    public void clickHome(ActionEvent event);
+    public void clickEdite(ActionEvent event);
+    public void clickSair(ActionEvent event);
+    public void clickSalvar(ActionEvent event);
+    public void clickCancel(ActionEvent event);
 }

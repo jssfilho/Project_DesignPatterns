@@ -19,15 +19,14 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="152.0" layoutY="328.0" mnemonicParsing="false" text="Salvar Alterações" />
-            <Button layoutX="327.0" layoutY="328.0" mnemonicParsing="false" text="Cancelar" />
-            <TextField layoutX="76.0" layoutY="176.0" />
-            <TextField layoutX="71.0" layoutY="232.0" />
-            <TextField layoutX="76.0" layoutY="127.0" />
-            <TextField layoutX="76.0" layoutY="76.0" />
-            <TextField layoutX="364.0" layoutY="76.0" />
-            <TextField layoutX="364.0" layoutY="131.0" />
-            <TextField layoutX="364.0" layoutY="184.0" />
+            <Button fx:id="salvarBtn" layoutX="152.0" layoutY="328.0" mnemonicParsing="false" onAction="#clickSalvar" text="Salvar Alterações" />
+            <Button fx:id="cancelBtn" layoutX="327.0" layoutY="328.0" mnemonicParsing="false" onAction="#clickCancel" text="Cancelar" />
+            <TextField fx:id="ftNum" layoutX="76.0" layoutY="176.0" />
+            <TextField fx:id="ftRua" layoutX="76.0" layoutY="127.0" />
+            <TextField fx:id="ftBairro" layoutX="76.0" layoutY="76.0" />
+            <TextField fx:id="emailEdit" layoutX="364.0" layoutY="76.0" />
+            <TextField fx:id="ftSenhaAt" layoutX="364.0" layoutY="131.0" />
+            <TextField fx:id="ftSenhaNew" layoutX="364.0" layoutY="184.0" />
             <Label layoutX="234.0" layoutY="26.0" text="Informações Pessoais" />
             <Label layoutX="362.0" layoutY="59.0" text="Email" />
             <Label layoutX="365.0" layoutY="171.0" text="Senha Nova" />
@@ -35,7 +34,6 @@
             <Label layoutX="76.0" layoutY="60.0" text="Bairro" />
             <Label layoutX="76.0" layoutY="110.0" text="Rua" />
             <Label layoutX="74.0" layoutY="163.0" text="Numero" />
-            <Label layoutX="71.0" layoutY="214.0" text="Complemento" />
          </children>
       </AnchorPane>
    </center>

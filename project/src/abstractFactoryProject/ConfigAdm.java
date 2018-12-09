@@ -6,6 +6,9 @@
 package abstractFactoryProject;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -46,7 +49,7 @@ public class ConfigAdm implements Configuracoes{
 
     @FXML
     private PasswordField senhaNew;
-    
+    private FacadeProject fP;
     
      public ConfigAdm() throws IOException{
         FXMLLoader loade = new FXMLLoader(getClass().getResource("ConfigAdm.fxml"));
@@ -55,32 +58,38 @@ public class ConfigAdm implements Configuracoes{
     
     @Override
     @FXML
-    public void clickHome() {
+    public void clickHome(ActionEvent event) {
         mainfx.OnChangeScene("Home");
     }
 
     @Override
     @FXML
-    public void clickEdite() {
+    public void clickEdite(ActionEvent event) {
         mainfx.OnChangeScene("Config");
     }
 
     @Override
     @FXML
-    public void clickSair() {
+    public void clickSair(ActionEvent event) {
         mainfx.OnChangeScene("Login");
     }
 
     @Override
     @FXML
-    public void clickSalvar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     public void clickSalvar(ActionEvent event) {
+        if(this.senhaAt.getText().equals(mainfx.c.u.getSenha())){
+            try {
+                this.fP.editAdm(this.emailEdit.getText(), this.senhaNew.getText());
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(ConfigAdm.class.getName()).log(Level.SEVERE, null, ex);
+            }
+         }
     }
 
     @Override
     @FXML
-    public void clickCancel() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void clickCancel(ActionEvent event) {
+        mainfx.OnChangeScene("Home");
     }
 
     @Override

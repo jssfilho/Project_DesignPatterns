@@ -70,6 +70,19 @@ public class Cadastro implements PaginaInicial{
     public FXMLLoader loader;
     
     
+    public void zerar(){
+        this.bairro.clear();
+        this.cpfUser.clear();
+        this.cnpj.clear();
+        this.emailUser.clear();
+        this.nomeLoja.clear();
+        this.numEndereco.clear();
+        this.nomeUser.clear();
+        this.rua.clear();
+        this.senhaUser.clear();
+        this.senhaUserC.clear();
+    }
+    
     public Cadastro() throws IOException, ClassNotFoundException{
         FXMLLoader loade = new FXMLLoader(getClass().getResource("cadastro.fxml"));
         this.loader=loade;
@@ -95,27 +108,37 @@ public class Cadastro implements PaginaInicial{
     @FXML
     @Override
     public void cadastrar(ActionEvent event) {
-        if(this.nomeLoja.isDisable()){
-            try {
-                this.f.cadastrar(this.senhaUser.getText(), this.nomeUser.getText(),this.emailUser.getText(),this.cpfUser.getText(), this.bairro.getText(), this.rua.getText(), Integer.parseInt(this.numEndereco.getText()));
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SQLException ex) {
-                Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
+        
+        if(this.senhaUserC.getText().equals(this.senhaUser.getText())){
+            if(this.nomeLoja.isDisable()){
+                try {
+                    this.f.cadastrar(this.senhaUser.getText(), this.nomeUser.getText(),this.emailUser.getText(),this.cpfUser.getText(), this.bairro.getText(), this.rua.getText(), Integer.parseInt(this.numEndereco.getText()));
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }else{
+                try {
+                    this.f.cadastrar(this.senhaUser.getText(), this.nomeUser.getText(),this.emailUser.getText(),this.cpfUser.getText(), this.bairro.getText(), this.rua.getText(), Integer.parseInt(this.numEndereco.getText()), this.nomeLoja.getText(), this.cnpj.getText());
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
-        }else{
-            try {
-                this.f.cadastrar(this.senhaUser.getText(), this.nomeUser.getText(),this.emailUser.getText(),this.cpfUser.getText(), this.bairro.getText(), this.rua.getText(), Integer.parseInt(this.numEndereco.getText()), this.nomeLoja.getText(), this.cnpj.getText());
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SQLException ex) {
-                Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            this.zerar();
+        }
+        
+        else{
+            System.out.println("Campos de senha incompativeis");
+            
         }
     }
 
     @FXML
     void cancelVoid(ActionEvent event) {
+        this.zerar();
         mainfx.OnChangeScene("Login");
     }
 

@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import observerProject.mainfx;
 
 /**
  *
@@ -28,6 +29,7 @@ public class FacadeProject {
     public Usuario loginMet(String id, String senha) throws ClassNotFoundException{
         Connection con = SingletonConnection.getConnection();
         PreparedStatement stmt = null;
+        PreparedStatement stmt2 = null;
         ResultSet rs=null;
         ResultSet rs2=null;
         Usuario u=null;
@@ -38,25 +40,25 @@ public class FacadeProject {
             stmt.setString(1, id);
             stmt.setString(2, senha);
             rs = stmt.executeQuery();
-            stmt = con.prepareStatement("SELECT * FROM usuario.cliente WHERE email = ? and senha = ?");
-            stmt.setString(1, id);
-            stmt.setString(2, senha);
-            rs2 = stmt.executeQuery();
+            stmt2 = con.prepareStatement("SELECT * FROM usuario.cliente WHERE email = ? and senha = ?");
+            stmt2.setString(1, id);
+            stmt2.setString(2, senha);
+            rs2 = stmt2.executeQuery();
             
             if (rs2.next()) {
                 u = new Cliente();
                 u.setTipo(false);
-                u.setCpf(rs.getString("cpf"));
-                u.setEmail(rs.getString("email"));
-                u.setNome(rs.getString("nome"));
-                u.setBairro(rs.getString("bairro"));
-                u.setRua(rs.getString("rua"));
-                u.setNum(rs.getInt("numero"));
-                u.setSenha(rs.getString("senha"));
+                u.setCpf(rs2.getString("cpf"));
+                u.setEmail(rs2.getString("email"));
+                u.setNome(rs2.getString("nome"));
+                u.setBairro(rs2.getString("bairro"));
+                u.setRua(rs2.getString("rua"));
+                u.setNum(rs2.getInt("numero"));
+                u.setSenha(rs2.getString("senha"));
             }else if(rs.next()){
                 Fornecedor d = new Fornecedor();
                 d.setTipo(true);
-                d.setCpf(""+rs.getString("cpf"));
+                d.setCpf(rs.getString("cpf"));
                 d.setEmail(rs.getString("email"));
                 d.setNome(rs.getString("nome"));
                 d.setBairro(rs.getString("bairro"));
@@ -96,14 +98,15 @@ public class FacadeProject {
             stmt.setString(8, Cnpj);
 
             stmt.executeUpdate();
-            stmt = con.prepareStatement("INSERT INTO usuario.loja (codLoja, nome)"
+            stmt = con.prepareStatement("INSERT INTO usuario.loja (cod, nome)"
                     + "VALUES(?,?)");
-            stmt.executeUpdate();
+            stmt.setString(1, Cnpj);
+            stmt.setString(2, loja);
+            
+            mainfx.OnChangeScene("Login"); 
             
         } catch (SQLException ex) {
             System.out.println(ex);
-        } finally {
-            SingletonConnection.closeConnection(con, stmt);
         }
     }
      
@@ -123,17 +126,17 @@ public class FacadeProject {
             stmt.setString(6, rua);
             stmt.setInt(7, num);
           
-
-            stmt.executeUpdate();
             
-            stmt = con.prepareStatement("INSERT INTO usuario.loja (codLoja, nome)"
-                    + "VALUES(?,?)");
+            stmt.execute();
+            
+            mainfx.OnChangeScene("Login");
+            
+            
+         
 
             
         } catch (SQLException ex) {
             System.out.println(ex);
-        } finally {
-            SingletonConnection.closeConnection(con, stmt);
         }
     }
    
@@ -147,4 +150,49 @@ public class FacadeProject {
     public void rmProd(){
         
     }
+    
+    public void editUsu(int num, String bairro, String rua, String email, String senhaN) throws ClassNotFoundException{
+        Connection con = SingletonConnection.getConnection();
+        
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = con.prepareStatement("UPDATE usuario.cliente" +
+            "SET bairro=?, numero=?, senha=?, email=?,rua=? " +
+            "WHERE cpf=? ");
+            stmt.setString(1,bairro);
+            stmt.setInt(2, num);
+            stmt.setString(3,senhaN);
+            stmt.setString(4, email);
+            stmt.setString(5, rua);
+            stmt.setString(6, mainfx.c.u.getCpf());
+            stmt.executeUpdate();
+            mainfx.OnChangeScene("Home");
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+    }
+    public void editAdm(String email, String senhaN) throws ClassNotFoundException{
+        Connection con = SingletonConnection.getConnection();
+        
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = con.prepareStatement("UPDATE usuario.cliente" +
+            "SET senha=?, email=?"+
+            "WHERE cpf=? ");
+            stmt.setString(1,email);
+            stmt.setString(2, senhaN);
+            stmt.setString(3, mainfx.c.u.getCpf());
+            stmt.executeUpdate();
+            mainfx.OnChangeScene("Home");
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+    }
+    
+    
+    
 }

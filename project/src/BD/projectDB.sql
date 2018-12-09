@@ -20,7 +20,7 @@ create table dados.pedidos{
 
 create table usuario.cliente (
     cpf varchar(20) primary key,
-    email varchar(50) not null,
+    email varchar(50) not null unique,
     nome varchar(50) not null,
     bairro varchar(25) not null,
     rua varchar(30) not null,
@@ -29,7 +29,7 @@ create table usuario.cliente (
 );
 create table usuario.fornecedor (
     cpf varchar(20) primary key,
-    email varchar(50) not null,
+    email varchar(50) not null unique,
     nome varchar(50) not null,
     bairro varchar(25) not null,
     rua varchar(30) not null,
