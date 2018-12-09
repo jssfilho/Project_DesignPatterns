@@ -34,8 +34,6 @@ public class FacadeProject {
         ResultSet rs2=null;
         Usuario u=null;
         try {
-
-            
             stmt = con.prepareStatement("SELECT * FROM usuario.fornecedor WHERE email = ? and senha = ?");
             stmt.setString(1, id);
             stmt.setString(2, senha);
@@ -73,8 +71,6 @@ public class FacadeProject {
 
         } catch (SQLException ex) {
             Logger.getLogger(FacadeProject.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            SingletonConnection.closeConnection(con, stmt, rs);
         }
         return u;
     }
@@ -141,14 +137,11 @@ public class FacadeProject {
     }
    
     public void createProduto(int tipo, String cod, float preco, String nome, String descricao, String opcao){
-        //fb.createProduto(0, p);
+       //fb.createProduto(0, p);
     }
     public Produto getProd(String cod, int tipo){
         
         return null;
-    }
-    public void rmProd(){
-        
     }
     
     public void editUsu(int num, String bairro, String rua, String email, String senhaN) throws ClassNotFoundException{
@@ -158,8 +151,8 @@ public class FacadeProject {
 
         try {
             stmt = con.prepareStatement("UPDATE usuario.cliente" +
-            "SET bairro=?, numero=?, senha=?, email=?,rua=? " +
-            "WHERE cpf=? ");
+            " SET bairro=?, numero=?, senha=?, email=?,rua=?" +
+            " WHERE cpf=?");
             stmt.setString(1,bairro);
             stmt.setInt(2, num);
             stmt.setString(3,senhaN);
@@ -179,11 +172,11 @@ public class FacadeProject {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("UPDATE usuario.cliente" +
-            "SET senha=?, email=?"+
-            "WHERE cpf=? ");
-            stmt.setString(1,email);
-            stmt.setString(2, senhaN);
+            stmt = con.prepareStatement("UPDATE usuario.fornecedor" +
+            " SET senha=?, email=?"+
+            " WHERE cpf=? ");
+            stmt.setString(1,senhaN);
+            stmt.setString(2, email);
             stmt.setString(3, mainfx.c.u.getCpf());
             stmt.executeUpdate();
             mainfx.OnChangeScene("Home");

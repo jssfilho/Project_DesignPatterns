@@ -5,8 +5,10 @@
  */
 package abstractFactoryProject;
 
-import java.awt.event.InputMethodEvent;
+import bridgeProject.*;
+
 import java.io.IOException;
+import java.sql.SQLException;
 
 
 import javafx.event.ActionEvent;
@@ -17,7 +19,7 @@ import javafx.scene.control.Button;
 
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
-import javafx.scene.control.Spinner;
+
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import observerProject.mainfx;
@@ -87,7 +89,11 @@ public class HomeAdm implements Home{
     
     private int tipoProd;
     
+    @FXML
+    private Button pesquisarProd;
+    
     private FacadeProject fP;
+    
     public HomeAdm() throws IOException, ClassNotFoundException{
         FXMLLoader loade = new FXMLLoader(getClass().getResource("HomeAdm.fxml"));
         this.loader=loade;
@@ -95,8 +101,12 @@ public class HomeAdm implements Home{
     }
     
     @FXML
-    void getProdEstoq(InputMethodEvent event) {
-        
+    void getProdEstoq(ActionEvent event) {
+        BancoProdutos p = new BancoProdutos();
+        Produto pb = null;
+        pb=p.getProduto(this.pesquisaEstoq.getText(), pb);
+        if (pb!=null)
+            this.mostraEstoq.setText(""+pb.getNome()+" "+pb.getPreco()+" "+pb.getCodBarra());
     }
 
     @FXML
@@ -108,23 +118,40 @@ public class HomeAdm implements Home{
     @FXML
     void cadastroEletro(ActionEvent event) {
         this.opcaoLbCadas.setText("Garantia");
+        this.tipoProd=2;
     }
 
     @FXML
     void cadastroVesti(ActionEvent event)  {
         this.opcaoLbCadas.setText("Tamanho");
+        this.tipoProd=3;
     }
 
     @FXML
-    void rmProduto(ActionEvent event) {
-        
+    void rmProduto(ActionEvent event) throws SQLException, ClassNotFoundException {
+        BancoProdutos p = new BancoProdutos();
+        p.removeProd(this.rmCod.getText());
     }
 
     @FXML
-    void salvaProduto(ActionEvent event) throws  RuntimeException{
+    void salvaProduto(ActionEvent event) throws  RuntimeException, SQLException, ClassNotFoundException{
        try{
-        //this.fP.createProduto(this.codCadastro.getText(),Float.parseFloat(this.precoCadastro.getText()), this.nomeCadastro.getText(), this.descriCadastro.getText(), this.opcaoCadastro.getText());
-    
+           BancoProdutos p = new BancoProdutos();
+           switch (this.tipoProd) {
+               case 1:
+                  p.createProduto(1, this.codCadastro.getText(), this.nomeCadastro.getText(), Float.parseFloat(this.precoCadastro.getText()), this.descriCadastro.getText(), this.opcaoCadastro.getText());
+                   break;
+               case 2:
+                   p.createProduto(2, this.codCadastro.getText(), this.nomeCadastro.getText(), Float.parseFloat(this.precoCadastro.getText()), this.descriCadastro.getText(), this.opcaoCadastro.getText());
+                   break;
+               case 3:
+                   p.createProduto(3, this.codCadastro.getText(), this.nomeCadastro.getText(), Float.parseFloat(this.precoCadastro.getText()), this.descriCadastro.getText(), this.opcaoCadastro.getText());
+                   break;
+               default:
+                   break;
+           }
+        
+       
        }catch(RuntimeException erroDigit){
            throw new RuntimeException("Erro na conexão ", erroDigit);
        }

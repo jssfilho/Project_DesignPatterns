@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import observerProject.mainfx;
 
 /**
  *
@@ -24,21 +25,21 @@ public class BancoProdutos implements BauProduto {
         }
     }
     @Override
-    public Produto getProduto(String codBarra) {
-        
-        Produto p = null;
-        PreparedStatement stmt = null;
-        PreparedStatement stmt2 = null;
-        PreparedStatement stmt3 = null;
-        ResultSet rs = null;
-        ResultSet rs2 = null;
-        ResultSet rs3 = null;
+    public Produto getProduto(String codBarra, Produto p) {
+      
         try {
+            Connection con = SingletonConnection.getConnection();
+            PreparedStatement stmt = null;
+            PreparedStatement stmt2 = null;
+            PreparedStatement stmt3 = null;
+            ResultSet rs = null;
+            ResultSet rs2 = null;
+            ResultSet rs3 = null;
             stmt = this.con.prepareStatement("SELECT * FROM produto.roupa WHERE codBarra=?");
             stmt.setString(1, codBarra);
             stmt2 = this.con.prepareStatement("SELECT * FROM produto.eletro WHERE codBarra=?");
             stmt2.setString(1, codBarra);
-            stmt3 = this.con.prepareStatement("SELECT * FROM produto.roupa WHERE codBarra=?");
+            stmt3 = this.con.prepareStatement("SELECT * FROM produto.alimento WHERE codBarra=?");
             stmt3.setString(1, codBarra);
             rs = stmt.executeQuery();
             rs2 = stmt2.executeQuery();
@@ -58,51 +59,56 @@ public class BancoProdutos implements BauProduto {
             }
         } catch (SQLException ex) {
             Logger.getLogger(BancoProdutos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(BancoProdutos.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
-        
         return p;
     }
-    public void createProduto(int tipo, Produto p) throws SQLException{
+    
+    public void createProduto(int tipo, String codBarra, String nome, float preco, String descricao, String opcao) throws SQLException, ClassNotFoundException{
+        Connection con = SingletonConnection.getConnection();
         PreparedStatement stmt = null;
-        switch(tipo){
-            case 1:
-                stmt = con.prepareStatement("INSERT INTO produto.alimento (codBarra, nome, preco, descricao)"
-                    + "VALUES(?,?,?,?)");
-                stmt.setString(1, p.getCodBarra());
-                stmt.setString(2,p.getNome());
-                stmt.setFloat(3, p.getPreco());
-                stmt.setString(4,p.getDescricao());
-                stmt.executeUpdate();
-                break;
-            case 2:
-                stmt = con.prepareStatement("INSERT INTO produto.eletro (codBarra, nome, preco, descricao, garantia) VALUES(?,?,?,?,?)");
-                Eletronico q= (Eletronico)p;
-                stmt.setString(1, q.getCodBarra());
-                stmt.setString(2,q.getNome());
-                stmt.setFloat(3, q.getPreco());
-                stmt.setString(4,q.getDescricao());
-                stmt.setString(5, q.getGarantia());
-                stmt.executeUpdate();
-                break;
-            case 3:
-                stmt = con.prepareStatement("INSERT INTO produto.roupa (codBarra, nome, preco, descricao, tamanho) VALUES(?,?,?,?,?)");
-                Vestimenta a = null;
-                a = (Vestimenta) p;
-                stmt.setString(1, a.getCodBarra());
-                stmt.setString(2,a.getNome());
-                stmt.setFloat(3, a.getPreco());
-                stmt.setString(4,a.getDescricao());
-                stmt.setString(5, a.getTamanho());
-                stmt.executeUpdate();
-                break;
-            default:
-                System.out.println("Erro");
-        }
+            switch(tipo){
+                case 1:
+                    stmt = con.prepareStatement("INSERT INTO produto.alimento (codBarra, nome, preco, descricao, codUser)"
+                        + "VALUES(?,?,?,?,?)");
+                    stmt.setString(1, codBarra);
+                    stmt.setString(2,nome);
+                    stmt.setFloat(3, preco);
+                    stmt.setString(4,descricao);
+                    stmt.setString(5,mainfx.c.u.getCpf());
+                    stmt.execute();
+                    break;
+                case 2:
+                    stmt = con.prepareStatement("INSERT INTO produto.eletro (codBarra, nome, preco, descricao, garantia, codUser) VALUES(?,?,?,?,?,?)");
+
+                    stmt.setString(1, codBarra);
+                    stmt.setString(2,nome);
+                    stmt.setFloat(3, preco);
+                    stmt.setString(4,descricao);
+                    stmt.setString(5, opcao);
+                    stmt.setString(6,mainfx.c.u.getCpf());
+                    stmt.executeUpdate();
+                    break;
+                case 3:
+                    stmt = con.prepareStatement("INSERT INTO produto.roupa (codBarra, nome, preco, descricao, tamanho, codUser) VALUES(?,?,?,?,?,?)");
+                    stmt.setString(1, codBarra);
+                    stmt.setString(2,nome);
+                    stmt.setFloat(3, preco);
+                    stmt.setString(4,descricao);
+                    stmt.setString(5, opcao);
+                    stmt.setString(6,mainfx.c.u.getCpf());
+                    stmt.executeUpdate();
+                    break;
+                default:
+                    System.out.println("Erro");
+            }
     }
-    public void removeProd(String codBarra) throws SQLException{
+    
+    public void removeProd(String codBarra) throws SQLException, ClassNotFoundException{
+        
         try {
+            Connection con = SingletonConnection.getConnection();
             PreparedStatement stmt = null;
             PreparedStatement stmt2 = null;
             PreparedStatement stmt3 = null;
@@ -113,7 +119,7 @@ public class BancoProdutos implements BauProduto {
             stmt.setString(1, codBarra);
             stmt2 = this.con.prepareStatement("SELECT * FROM produto.eletro WHERE codBarra=?");
             stmt2.setString(1, codBarra);
-            stmt3 = this.con.prepareStatement("SELECT * FROM produto.roupa WHERE codBarra=?");
+            stmt3 = this.con.prepareStatement("SELECT * FROM produto.alimento WHERE codBarra=?");
             stmt3.setString(1, codBarra);
             rs = stmt.executeQuery();
             rs2 = stmt2.executeQuery();
@@ -121,13 +127,16 @@ public class BancoProdutos implements BauProduto {
             if(rs.next()){
               stmt = this.con.prepareStatement("DELETE FROM produto.roupa WHERE codBarra=?");
               stmt.setString(1,codBarra);
+              stmt.execute();
             }else if(rs2.next()){
                 
                 stmt2 = this.con.prepareStatement("DELETE FROM produto.eletro WHERE codBarra=?");
                 stmt2.setString(1, codBarra);
+                stmt2.execute();
             }else if(rs3.next()){
                 stmt3 = this.con.prepareStatement("DELETE FROM produto.alimento WHERE codBarra=?");
                 stmt3.setString(1, codBarra);
+                stmt3.execute();
             }else{
                 System.out.println("Produto não existe");
             }

@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import observerProject.mainfx;
@@ -52,10 +53,10 @@ public class ConfigUsu implements Configuracoes{
     private TextField emailEdit;
 
     @FXML
-    private TextField ftSenhaAt;
+    private PasswordField ftSenhaAt;
 
     @FXML
-    private TextField ftSenhaNew;
+    private PasswordField ftSenhaNew;
 
     private FacadeProject fP;
     
@@ -88,6 +89,7 @@ public class ConfigUsu implements Configuracoes{
     public void clickSalvar(ActionEvent event) {
         if(this.ftSenhaAt.getText().equals(mainfx.c.u.getSenha())){
             try {
+                this.fP = new FacadeProject();
                 this.fP.editUsu(Integer.parseInt(this.ftNum.getText()), this.ftBairro.getText(), this.ftRua.getText(), this.emailEdit.getText(), this.ftSenhaNew.getText());
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(ConfigUsu.class.getName()).log(Level.SEVERE, null, ex);

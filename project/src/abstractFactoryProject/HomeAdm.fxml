@@ -82,6 +82,7 @@
                                     <Label layoutX="127.0" layoutY="146.0" text="Quantidade" />
                                     <Label layoutX="215.0" layoutY="146.0" text="Preço Total" />
                                     <Label fx:id="mostraEstoq" layoutX="14.0" layoutY="173.0" prefHeight="24.0" prefWidth="270.0" text="Produto" />
+                                    <Button fx:id="pesquisarProd" layoutX="116.0" layoutY="216.0" mnemonicParsing="false" onAction="#getProdEstoq" text="Pesquisar" />
                                  </children></AnchorPane>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                                  <children>

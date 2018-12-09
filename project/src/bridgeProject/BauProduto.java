@@ -11,5 +11,5 @@ package bridgeProject;
  * @author Joao Santos
  */
 public interface BauProduto {
-    public Produto getProduto(String codBarra);
+    public Produto getProduto(String codBarra, Produto p);
 }

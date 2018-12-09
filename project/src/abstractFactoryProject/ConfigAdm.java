@@ -79,6 +79,7 @@ public class ConfigAdm implements Configuracoes{
      public void clickSalvar(ActionEvent event) {
         if(this.senhaAt.getText().equals(mainfx.c.u.getSenha())){
             try {
+                this.fP = new FacadeProject();
                 this.fP.editAdm(this.emailEdit.getText(), this.senhaNew.getText());
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(ConfigAdm.class.getName()).log(Level.SEVERE, null, ex);
