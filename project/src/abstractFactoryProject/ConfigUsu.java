@@ -89,6 +89,11 @@ public class ConfigUsu implements Configuracoes{
     public void clickSalvar(ActionEvent event) {
         if(this.ftSenhaAt.getText().equals(mainfx.c.u.getSenha())){
             try {
+                mainfx.c.u.setNum(Integer.parseInt(this.ftNum.getText())); 
+                mainfx.c.u.setBairro(this.ftBairro.getText());
+                mainfx.c.u.setRua(this.ftRua.getText()); 
+                mainfx.c.u.setEmail(this.emailEdit.getText());
+                mainfx.c.u.setSenha(this.ftSenhaNew.getText());
                 this.fP = new FacadeProject();
                 this.fP.editUsu(Integer.parseInt(this.ftNum.getText()), this.ftBairro.getText(), this.ftRua.getText(), this.emailEdit.getText(), this.ftSenhaNew.getText());
             } catch (ClassNotFoundException ex) {
