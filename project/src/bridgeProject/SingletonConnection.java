@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author assert
+ * @author Joao Santos
  */
 public class SingletonConnection {
     private static final String DRIVER = "com.mysql.jdbc.Driver";
